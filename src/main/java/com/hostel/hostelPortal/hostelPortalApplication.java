@@ -9,7 +9,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import java.io.File;
 import java.util.HashSet;
+import java.util.Properties;
 import java.util.Set;
 
 @SpringBootApplication
@@ -26,6 +33,7 @@ public class hostelPortalApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		System.out.println("starting code");
 
+//	*******************checking user CRUD****************************
 //		User user = new User();
 //		user.setFirstName("Bhargav");
 //		user.setLastName("Mehta");
@@ -47,5 +55,14 @@ public class hostelPortalApplication implements CommandLineRunner {
 //		User user1=this.userService.createUser(user,userRoleSet);
 //		System.out.println(user1.getUserName());
 
+// 		****************************checking mail********************
+//		System.out.println("preparing to send message ...");
+//		String message = "Hello , Dear, this is message for security check . ";
+//		String subject = "CodersArea : Confirmation";
+//		String to = "abc@iiitb.ac.in";
+//		String from = "hostel.iiitb1@gmail.com";
+
+		//sendEmail(message,subject,to,from);
+		//sendAttach(message,subject,to,from);
 	}
 }
