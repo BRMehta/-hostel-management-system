@@ -6,6 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="changed VCS root for addition of frontend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/EmailServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +85,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/hostelFrontend" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -117,7 +126,8 @@
       <workItem from="1649913877137" duration="932000" />
       <workItem from="1649914909236" duration="1538000" />
       <workItem from="1649916485460" duration="1879000" />
-      <workItem from="1649918598754" duration="329000" />
+      <workItem from="1649918598754" duration="4673000" />
+      <workItem from="1649949472770" duration="99000" />
     </task>
     <task id="LOCAL-00001" summary="Connected to DB and created User table">
       <created>1648735695335</created>
