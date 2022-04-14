@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="changed VCS root for addition of frontend">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/.vscode/extensions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/.vscode/launch.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/.vscode/tasks.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/EmailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/hostelPortalApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/EmailRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/EmailResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/repo/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/repo/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/EmailServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer/src/test/java/com/hostel/hostelPortal/HostelPortalApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/hostelServer" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="279YJfF4CmkKZNh1jB9ollcpLMb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/hostelServer" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mehta\OneDrive - iiit-b\sem2\spe\Projects\My project\hostelPortal\hostelServer" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="HostelPortalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="hostelPortal" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hostel.hostelPortal.hostelPortalApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="" />
+      <created>1648733700021</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1648733700021</updated>
+      <workItem from="1648733701177" duration="9433000" />
+      <workItem from="1648977215344" duration="14761000" />
+      <workItem from="1649315519370" duration="2239000" />
+      <workItem from="1649323608181" duration="134000" />
+      <workItem from="1649335339644" duration="1451000" />
+      <workItem from="1649440162744" duration="1487000" />
+      <workItem from="1649510188907" duration="1957000" />
+      <workItem from="1649585695544" duration="12000" />
+      <workItem from="1649602077407" duration="10675000" />
+      <workItem from="1649755031193" duration="4447000" />
+      <workItem from="1649760360728" duration="597000" />
+      <workItem from="1649913877137" duration="932000" />
+      <workItem from="1649914909236" duration="975000" />
+    </task>
+    <task id="LOCAL-00001" summary="Connected to DB and created User table">
+      <created>1648735695335</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1648735695335</updated>
+    </task>
+    <task id="LOCAL-00002" summary="USER CRUD operations">
+      <created>1649069344496</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1649069344496</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added email functionality">
+      <created>1649682949234</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1649682949234</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="SHOW_ROOT_NAMES" value="true" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Connected to DB and created User table" />
+    <MESSAGE value="USER CRUD operations" />
+    <MESSAGE value="Added email functionality" />
+    <MESSAGE value="changed VCS root for addition of frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed VCS root for addition of frontend" />
+  </component>
+</project>
