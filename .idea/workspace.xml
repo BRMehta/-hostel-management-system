@@ -5,62 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="changed VCS root for addition of frontend">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/.browserslistrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/.vscode/extensions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/.vscode/launch.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/.vscode/tasks.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/angular.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/karma.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/assets/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/environments/environment.prod.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/environments/environment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/polyfills.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/tsconfig.spec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/EmailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/hostelPortalApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/EmailRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/EmailResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/repo/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/repo/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/EmailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/EmailServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/test/java/com/hostel/hostelPortal/HostelPortalApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/controller/EmailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/hostelPortalApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/EmailRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/UserRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/repo/RoleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/repo/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/service/EmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/service/impl/EmailServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/service/impl/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hostel/hostelPortal/HostelPortalApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +94,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/hostelServer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -164,7 +130,8 @@
       <workItem from="1649755031193" duration="4447000" />
       <workItem from="1649760360728" duration="597000" />
       <workItem from="1649913877137" duration="932000" />
-      <workItem from="1649914909236" duration="975000" />
+      <workItem from="1649914909236" duration="1538000" />
+      <workItem from="1649916485460" duration="896000" />
     </task>
     <task id="LOCAL-00001" summary="Connected to DB and created User table">
       <created>1648735695335</created>
@@ -187,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649682949234</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="changed VCS root for addition of frontend">
+      <created>1649916233409</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1649916233409</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
