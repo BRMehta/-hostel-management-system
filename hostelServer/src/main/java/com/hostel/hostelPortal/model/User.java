@@ -31,7 +31,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String userName, String password, String firstName, String lastName, String email, String phone, boolean enabled, Set<UserRole> userRoles) {
+    public User(Long id, String userName, String password, String firstName, String lastName, String email, String phone, boolean enabled, String profile, Set<UserRole> userRoles) {
         this.id = id;
         this.userName = userName;
         this.password = password;
@@ -40,6 +40,7 @@ public class User {
         this.email = email;
         this.phone = phone;
         this.enabled = enabled;
+        this.profile = profile;
         this.userRoles = userRoles;
     }
 

@@ -8,5 +8,8 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: #e2e2e2;
+}
+
+.text-center{
+    text-align: center;
 }

@@ -17,6 +17,8 @@ import { FormsModule } from '@angular/forms';
 import { EmailService } from './service/email.service';
 import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SignupComponent } from './pages/signup/signup.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 
@@ -25,7 +27,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    EmailComponent
+    EmailComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
