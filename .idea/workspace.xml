@@ -6,10 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="changed VCS root for addition of frontend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostelFrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostelFrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/components/home/home.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/components/home/home.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/components/home/home.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/components/home/home.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/login/login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/login/login.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/login/login.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/signup/signup.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/signup/signup.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/signup/signup.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/signup/signup.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/User.java" afterDir="false" />
     </list>
@@ -122,7 +128,7 @@
       <workItem from="1649949472770" duration="99000" />
       <workItem from="1650078479652" duration="744000" />
       <workItem from="1650101977986" duration="7578000" />
-      <workItem from="1650169269128" duration="517000" />
+      <workItem from="1650169269128" duration="1347000" />
     </task>
     <task id="LOCAL-00001" summary="Connected to DB and created User table">
       <created>1648735695335</created>
