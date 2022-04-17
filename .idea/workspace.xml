@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="changed VCS root for addition of frontend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/components/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/signup/signup.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/signup/signup.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/signup/signup.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/signup/signup.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,12 +72,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "spring.configuration.checksum": "b2f4364898308864459e34381c153980"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b2f4364898308864459e34381c153980&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mehta\OneDrive - iiit-b\sem2\spe\Projects\My project\hostelPortal\hostelServer" />
@@ -117,7 +121,8 @@
       <workItem from="1649918598754" duration="4673000" />
       <workItem from="1649949472770" duration="99000" />
       <workItem from="1650078479652" duration="744000" />
-      <workItem from="1650101977986" duration="2901000" />
+      <workItem from="1650101977986" duration="7578000" />
+      <workItem from="1650169269128" duration="517000" />
     </task>
     <task id="LOCAL-00001" summary="Connected to DB and created User table">
       <created>1648735695335</created>
