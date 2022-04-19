@@ -6,6 +6,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { AdminGuard } from './service/admin.guard';
+import { UserGuard } from './service/user.guard';
 
 //Array
 const routes: Routes = [
@@ -32,12 +34,14 @@ const routes: Routes = [
   {
     path:"admin-dashboard",
     component:DashboardComponent,
-    pathMatch:"full"
+    pathMatch:"full",
+    canActivate: [AdminGuard],
   },
   {
     path:"user-dashboard",
     component:UserDashboardComponent,
-    pathMatch:"full"
+    pathMatch:"full",
+    canActivate: [UserGuard],
   }
 ];
 

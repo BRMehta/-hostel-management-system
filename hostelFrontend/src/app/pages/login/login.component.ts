@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
     username:'',
     password:'',
   }
-  constructor(private snack:MatSnackBar, private login:LoginService) { }
+  constructor(private snack:MatSnackBar, private login:LoginService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -46,11 +47,13 @@ export class LoginComponent implements OnInit {
             //redirect ...ADMIN:admin-dashboard
             if(this.login.getUserRole()=="ADMIN"){
               //admin dashboard
-              window.location.href='/admin-dashboard';
+              // window.location.href='/admin-dashboard';
+              this.router.navigate(['/admin-dashboard'])
             }
             else if(this.login.getUserRole()=="NORMAL"){
               //normal user dashboard
-              window.location.href='/user-dashboard';
+              // window.location.href='/user-dashboard';
+              this.router.navigate(['/user-dashboard'])
             }
             else{
               this.login.logout();
@@ -61,6 +64,9 @@ export class LoginComponent implements OnInit {
       (error)=>{
         console.log('Error!');
         console.log(error);
+        this.snack.open('Invalid Details! Try again','OK',{
+          duration:3000,
+        })
       }
     )
   }
