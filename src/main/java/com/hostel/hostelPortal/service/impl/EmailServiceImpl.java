@@ -37,7 +37,7 @@ public class EmailServiceImpl implements EmailService {
         Session session=Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, "*****");
+                return new PasswordAuthentication(from, "1btiii.letsoh");
             }
         });
 
@@ -94,7 +94,7 @@ public class EmailServiceImpl implements EmailService {
         Session session=Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, "*****");
+                return new PasswordAuthentication(from, "1btiii.letsoh");
             }
         });
 
