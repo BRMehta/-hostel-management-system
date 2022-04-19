@@ -15,13 +15,18 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins="http://localhost:4200")
+import java.security.Principal;
+
+@CrossOrigin("*")
+//@CrossOrigin(origins="http://localhost:4200")
 @RestController
+
+
+
+
+
 public class AuthenticateController
 {
     @Autowired
@@ -57,12 +62,21 @@ public class AuthenticateController
     {
         try{
             System.out.println(username + ";;;;" + password);
-            //authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username,password));
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username,password));
             System.out.println("done!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         } catch(DisabledException e) {
             throw new Exception("User disabled " + e.getMessage());
         } catch(BadCredentialsException e) {
             throw new Exception("Invalid Credentials " + e.getMessage());
+        } catch(Exception e)
+        {
+            throw new Exception("Exception occurred! " + e.getMessage());
         }
+    }
+
+    //returns the details    of the current user
+    @GetMapping("/current-user")
+    public User getCurrentUser(Principal principal){
+        return ((User)this.userDetailsServiceImpl.loadUserByUsername(principal.getName()));
     }
 }
