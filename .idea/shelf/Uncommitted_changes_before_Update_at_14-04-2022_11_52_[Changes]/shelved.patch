@@ -1,0 +1,1124 @@
+Index: src/test/java/com/hostel/hostelPortal/HostelPortalApplicationTests.java
+===================================================================
+diff --git a/src/test/java/com/hostel/hostelPortal/HostelPortalApplicationTests.java b/src/test/java/com/hostel/hostelPortal/HostelPortalApplicationTests.java
+deleted file mode 100644
+--- a/src/test/java/com/hostel/hostelPortal/HostelPortalApplicationTests.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,13 +0,0 @@
+-package com.hostel.hostelPortal;
+-
+-import org.junit.jupiter.api.Test;
+-import org.springframework.boot.test.context.SpringBootTest;
+-
+-@SpringBootTest
+-class HostelPortalApplicationTests {
+-
+-	@Test
+-	void contextLoads() {
+-	}
+-
+-}
+Index: .mvn/wrapper/maven-wrapper.properties
+===================================================================
+diff --git a/.mvn/wrapper/maven-wrapper.properties b/.mvn/wrapper/maven-wrapper.properties
+deleted file mode 100644
+--- a/.mvn/wrapper/maven-wrapper.properties	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,2 +0,0 @@
+-distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.8.4/apache-maven-3.8.4-bin.zip
+-wrapperUrl=https://repo.maven.apache.org/maven2/org/apache/maven/wrapper/maven-wrapper/3.1.0/maven-wrapper-3.1.0.jar
+Index: src/main/java/com/hostel/hostelPortal/controller/EmailController.java
+===================================================================
+diff --git a/src/main/java/com/hostel/hostelPortal/controller/EmailController.java b/src/main/java/com/hostel/hostelPortal/controller/EmailController.java
+deleted file mode 100644
+--- a/src/main/java/com/hostel/hostelPortal/controller/EmailController.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,41 +0,0 @@
+-package com.hostel.hostelPortal.controller;
+-
+-import com.hostel.hostelPortal.model.EmailRequest;
+-import com.hostel.hostelPortal.service.EmailService;
+-import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.http.HttpStatus;
+-import org.springframework.http.ResponseEntity;
+-import org.springframework.web.bind.annotation.RequestBody;
+-import org.springframework.web.bind.annotation.RequestMapping;
+-import org.springframework.web.bind.annotation.RequestMethod;
+-import org.springframework.web.bind.annotation.RestController;
+-
+-@RestController
+-public class EmailController {
+-    @Autowired
+-    private EmailService emailService;
+-    @RequestMapping("/welcome")
+-    public String welcome()
+-    {
+-        return "hello this is my email api";
+-    }
+-
+-    //api to send email
+-    @RequestMapping(value="/sendemail",method= RequestMethod.POST)
+-    //<?> means you don't want want mention type
+-    //@RequestBody helps in storing JSON data
+-    public ResponseEntity<?> sendEmail(@RequestBody EmailRequest request)
+-    {
+-        boolean result=this.emailService.sendEmail(request.getMessage(), request.getSubject(), request.getTo());
+-        if(result)
+-        {
+-            System.out.println(request);
+-            return ResponseEntity.ok("Email sent successfully.");
+-        }
+-        else
+-        {
+-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Email not sent...");
+-        }
+-
+-    }
+-}
+Index: src/main/java/com/hostel/hostelPortal/model/EmailRequest.java
+===================================================================
+diff --git a/src/main/java/com/hostel/hostelPortal/model/EmailRequest.java b/src/main/java/com/hostel/hostelPortal/model/EmailRequest.java
+deleted file mode 100644
+--- a/src/main/java/com/hostel/hostelPortal/model/EmailRequest.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,49 +0,0 @@
+-package com.hostel.hostelPortal.model;
+-
+-public class EmailRequest {
+-    private String to;
+-    private String subject;
+-    private String message;
+-
+-    public EmailRequest(String to, String subject, String message) {
+-        this.to = to;
+-        this.subject = subject;
+-        this.message = message;
+-    }
+-
+-    public EmailRequest() {
+-    }
+-
+-    public String getTo() {
+-        return to;
+-    }
+-
+-    public void setTo(String to) {
+-        this.to = to;
+-    }
+-
+-    public String getSubject() {
+-        return subject;
+-    }
+-
+-    public void setSubject(String subject) {
+-        this.subject = subject;
+-    }
+-
+-    public String getMessage() {
+-        return message;
+-    }
+-
+-    public void setMessage(String message) {
+-        this.message = message;
+-    }
+-
+-    @Override
+-    public String toString() {
+-        return "EmailRequest{" +
+-                "to='" + to + '\'' +
+-                ", subject='" + subject + '\'' +
+-                ", message='" + message + '\'' +
+-                '}';
+-    }
+-}
+Index: src/main/java/com/hostel/hostelPortal/service/impl/EmailServiceImpl.java
+===================================================================
+diff --git a/src/main/java/com/hostel/hostelPortal/service/impl/EmailServiceImpl.java b/src/main/java/com/hostel/hostelPortal/service/impl/EmailServiceImpl.java
+deleted file mode 100644
+--- a/src/main/java/com/hostel/hostelPortal/service/impl/EmailServiceImpl.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,148 +0,0 @@
+-package com.hostel.hostelPortal.service.impl;
+-
+-import com.hostel.hostelPortal.service.EmailService;
+-import org.springframework.stereotype.Service;
+-
+-import javax.mail.*;
+-import javax.mail.internet.InternetAddress;
+-import javax.mail.internet.MimeBodyPart;
+-import javax.mail.internet.MimeMessage;
+-import javax.mail.internet.MimeMultipart;
+-import java.io.File;
+-import java.util.Properties;
+-
+-@Service
+-public class EmailServiceImpl implements EmailService {
+-    //this is responsible to send email..
+-    @Override
+-    public boolean sendEmail(String message, String subject, String to) {
+-        boolean flag=false;
+-        String from="hostel.iiitb1@gmail.com";
+-
+-        //Variable for gmail
+-        String host="smtp.gmail.com";
+-
+-        //get the system properties
+-        Properties properties = System.getProperties();
+-        System.out.println("PROPERTIES "+properties);
+-
+-        //setting important information to properties object
+-        //host set
+-        properties.put("mail.smtp.host", host);
+-        properties.put("mail.smtp.port","465");
+-        properties.put("mail.smtp.ssl.enable","true");
+-        properties.put("mail.smtp.auth","true");
+-
+-        //Step 1: to get the session object..
+-        Session session=Session.getInstance(properties, new Authenticator() {
+-            @Override
+-            protected PasswordAuthentication getPasswordAuthentication() {
+-                return new PasswordAuthentication(from, "****");
+-            }
+-        });
+-
+-        session.setDebug(true);
+-
+-        //Step 2 : compose the message [text,multi media]
+-        MimeMessage m = new MimeMessage(session);
+-
+-        try {
+-            //from email
+-            m.setFrom(from);
+-
+-            //adding recipient to message
+-            m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+-
+-            //adding subject to message
+-            m.setSubject(subject);
+-
+-            //adding text to message
+-            m.setText(message);
+-
+-            //send
+-            //Step 3 : send the message using Transport class
+-            Transport.send(m);
+-
+-            System.out.println("Sent success...................");
+-            flag=true;
+-        }catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-        return flag;
+-    }
+-    //this is responsible to send the message with attachment
+-    private static boolean sendAttach(String message, String subject, String to) {
+-        boolean flag=false;
+-        String from="hostel.iiitb1@gmail.com";
+-
+-        //Variable for gmail
+-        String host="smtp.gmail.com";
+-
+-        //get the system properties
+-        Properties properties = System.getProperties();
+-        System.out.println("PROPERTIES "+properties);
+-
+-        //setting important information to properties object
+-
+-        //host set
+-        properties.put("mail.smtp.host", host);
+-        properties.put("mail.smtp.port","465");
+-        properties.put("mail.smtp.ssl.enable","true");
+-        properties.put("mail.smtp.auth","true");
+-
+-        //Step 1: to get the session object..
+-        Session session=Session.getInstance(properties, new Authenticator() {
+-            @Override
+-            protected PasswordAuthentication getPasswordAuthentication() {
+-                return new PasswordAuthentication(from, "****");
+-            }
+-        });
+-
+-        session.setDebug(true);
+-
+-        //Step 2 : compose the message [text,multi media]
+-        MimeMessage m = new MimeMessage(session);
+-        try {
+-            //from email
+-            m.setFrom(from);
+-
+-            //adding recipient to message
+-            m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+-
+-            //adding subject to message
+-            m.setSubject(subject);
+-
+-            //attachement..
+-            //file path
+-            String path="C:\\Users\\mehta\\OneDrive\\Desktop\\hello.txt";
+-
+-            MimeMultipart mimeMultipart = new MimeMultipart();
+-            //text
+-            //file
+-            MimeBodyPart textMime = new MimeBodyPart();
+-            MimeBodyPart fileMime = new MimeBodyPart();
+-
+-            try {
+-                textMime.setText(message);
+-
+-                File file=new File(path);
+-                fileMime.attachFile(file);
+-
+-                mimeMultipart.addBodyPart(textMime);
+-                mimeMultipart.addBodyPart(fileMime);
+-            } catch (Exception e) {
+-                e.printStackTrace();
+-            }
+-            m.setContent(mimeMultipart);
+-
+-            //send
+-            //Step 3 : send the message using Transport class
+-            Transport.send(m);
+-            flag=true;
+-        }catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-        System.out.println("Sent success...................");
+-        return flag;
+-    }
+-}
+Index: src/main/java/com/hostel/hostelPortal/model/UserRole.java
+===================================================================
+diff --git a/src/main/java/com/hostel/hostelPortal/model/UserRole.java b/src/main/java/com/hostel/hostelPortal/model/UserRole.java
+deleted file mode 100644
+--- a/src/main/java/com/hostel/hostelPortal/model/UserRole.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,63 +0,0 @@
+-package com.hostel.hostelPortal.model;
+-
+-import javax.persistence.*;
+-
+-@Entity
+-public class UserRole {
+-    @Id
+-    @GeneratedValue(strategy = GenerationType.AUTO)
+-    private Long userRoleId;
+-
+-    //User
+-    @ManyToOne(fetch = FetchType.EAGER)
+-    private User user;
+-
+-    @ManyToOne
+-    private Role role;
+-
+-    //Constructors
+-    public UserRole() {
+-    }
+-
+-    public UserRole(Long userRoleId, User user, Role role) {
+-        this.userRoleId = userRoleId;
+-        this.user = user;
+-        this.role = role;
+-    }
+-
+-    //Getters and Setters
+-    public Long getUserRoleId() {
+-        return userRoleId;
+-    }
+-
+-    public void setUserRoleId(Long userRoleId) {
+-        this.userRoleId = userRoleId;
+-    }
+-
+-    public User getUser() {
+-        return user;
+-    }
+-
+-    public void setUser(User user) {
+-        this.user = user;
+-    }
+-
+-    public Role getRole() {
+-        return role;
+-    }
+-
+-    public void setRole(Role role) {
+-        this.role = role;
+-    }
+-
+-    //to_string method
+-
+-    @Override
+-    public String toString() {
+-        return "UserRole{" +
+-                "userRoleId=" + userRoleId +
+-                ", user=" + user +
+-                ", role=" + role +
+-                '}';
+-    }
+-}
+Index: src/main/java/com/hostel/hostelPortal/repo/RoleRepository.java
+===================================================================
+diff --git a/src/main/java/com/hostel/hostelPortal/repo/RoleRepository.java b/src/main/java/com/hostel/hostelPortal/repo/RoleRepository.java
+deleted file mode 100644
+--- a/src/main/java/com/hostel/hostelPortal/repo/RoleRepository.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,7 +0,0 @@
+-package com.hostel.hostelPortal.repo;
+-
+-import com.hostel.hostelPortal.model.Role;
+-import org.springframework.data.jpa.repository.JpaRepository;
+-
+-public interface RoleRepository extends JpaRepository<Role,Long> {
+-}
+Index: .gitignore
+===================================================================
+diff --git a/.gitignore b/.gitignore
+deleted file mode 100644
+--- a/.gitignore	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,33 +0,0 @@
+-HELP.md
+-target/
+-!.mvn/wrapper/maven-wrapper.jar
+-!**/src/main/**/target/
+-!**/src/test/**/target/
+-
+-### STS ###
+-.apt_generated
+-.classpath
+-.factorypath
+-.project
+-.settings
+-.springBeans
+-.sts4-cache
+-
+-### IntelliJ IDEA ###
+-.idea
+-*.iws
+-*.iml
+-*.ipr
+-
+-### NetBeans ###
+-/nbproject/private/
+-/nbbuild/
+-/dist/
+-/nbdist/
+-/.nb-gradle/
+-build/
+-!**/src/main/**/build/
+-!**/src/test/**/build/
+-
+-### VS Code ###
+-.vscode/
+Index: src/main/java/com/hostel/hostelPortal/service/impl/UserServiceImpl.java
+===================================================================
+diff --git a/src/main/java/com/hostel/hostelPortal/service/impl/UserServiceImpl.java b/src/main/java/com/hostel/hostelPortal/service/impl/UserServiceImpl.java
+deleted file mode 100644
+--- a/src/main/java/com/hostel/hostelPortal/service/impl/UserServiceImpl.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,62 +0,0 @@
+-package com.hostel.hostelPortal.service.impl;
+-
+-import com.hostel.hostelPortal.model.User;
+-import com.hostel.hostelPortal.model.UserRole;
+-import com.hostel.hostelPortal.repo.RoleRepository;
+-import com.hostel.hostelPortal.repo.UserRepository;
+-import com.hostel.hostelPortal.service.UserService;
+-import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.stereotype.Service;
+-
+-import java.util.Set;
+-
+-@Service
+-public class UserServiceImpl implements UserService {
+-    @Autowired
+-    private UserRepository userRepository;
+-
+-    @Autowired
+-    private RoleRepository roleRepository;
+-
+-    //creating user
+-    @Override
+-    public User createUser(User user, Set<UserRole> userRoles) throws Exception{
+-        //to check if username is already present in DB or not?
+-        User local= this.userRepository.findByUserName(user.getUserName());
+-        if(local!=null)
+-        {
+-            System.out.println("User is already there !!");
+-            throw new Exception("User already present !!");
+-        }
+-        else
+-        {
+-            //create user
+-            for(UserRole ur:userRoles)
+-            {
+-                // only saved Role data into DB
+-                roleRepository.save(ur.getRole());
+-            }
+-            user.getUserRoles().addAll(userRoles);
+-            local = this.userRepository.save(user);
+-        }
+-        return local;
+-    }
+-
+-    //getting user by username
+-    @Override
+-    public User getUser(String username) {
+-        return this.userRepository.findByUserName(username);
+-    }
+-
+-    @Override
+-    public void deleteUser(Long userId) {
+-        this.userRepository.deleteById(userId);
+-    }
+-
+-    @Override
+-    public void updateUser(User user) {
+-        this.userRepository.save(user);
+-    }
+-
+-
+-}
+Index: src/main/java/com/hostel/hostelPortal/controller/UserController.java
+===================================================================
+diff --git a/src/main/java/com/hostel/hostelPortal/controller/UserController.java b/src/main/java/com/hostel/hostelPortal/controller/UserController.java
+deleted file mode 100644
+--- a/src/main/java/com/hostel/hostelPortal/controller/UserController.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,57 +0,0 @@
+-package com.hostel.hostelPortal.controller;
+-
+-import com.hostel.hostelPortal.model.Role;
+-import com.hostel.hostelPortal.model.User;
+-import com.hostel.hostelPortal.model.UserRole;
+-import com.hostel.hostelPortal.service.UserService;
+-import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.web.bind.annotation.*;
+-
+-import java.util.HashSet;
+-import java.util.Set;
+-
+-@RestController
+-@RequestMapping("/user")
+-public class UserController {
+-
+-    @Autowired
+-    private UserService userService;
+-
+-    //creating user
+-    @PostMapping("/") //for saving data use post
+-    //For fetching JSON data use @RequestBody
+-    public User createUser(@RequestBody User user) throws Exception {
+-        Role role=new Role();
+-        role.setRoleId(45L);
+-        role.setRoleName("NORMAL");
+-
+-        UserRole userRole = new UserRole();
+-        userRole.setRole(role);
+-        userRole.setUser(user);
+-
+-        Set<UserRole> roles=new HashSet<>();
+-        roles.add(userRole);
+-
+-        return this.userService.createUser(user,roles);
+-    }
+-
+-    @GetMapping("/{username}")
+-    public User getUser(@PathVariable("username") String username)
+-    {
+-        return this.userService.getUser(username);
+-    }
+-
+-    //delete the user by id
+-    @DeleteMapping("/{userId}")
+-    public void deleteUser(@PathVariable("userId") Long userId)
+-    {
+-        this.userService.deleteUser(userId);
+-    }
+-
+-    //update user data
+-    @PutMapping("/update")
+-    public void updateUser(@RequestBody User user)
+-    {
+-        this.userService.updateUser(user);
+-    }
+-}
+Index: src/main/java/com/hostel/hostelPortal/model/Role.java
+===================================================================
+diff --git a/src/main/java/com/hostel/hostelPortal/model/Role.java b/src/main/java/com/hostel/hostelPortal/model/Role.java
+deleted file mode 100644
+--- a/src/main/java/com/hostel/hostelPortal/model/Role.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,64 +0,0 @@
+-package com.hostel.hostelPortal.model;
+-
+-import javax.persistence.*;
+-import java.util.HashSet;
+-import java.util.Set;
+-
+-@Entity
+-//@Access(AccessType.PROPERTY)
+-//@Table(name="roles")
+-public class Role {
+-    @Id
+-    private Long roleId;
+-    private String roleName;
+-
+-    @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.LAZY,mappedBy = "role") //call when needed
+-    private Set<UserRole> userRoles=new HashSet<>();
+-
+-    //Constructors
+-    public Role() {
+-    }
+-
+-    public Role(Long roleId, String roleName, Set<UserRole> userRoles) {
+-        this.roleId = roleId;
+-        this.roleName = roleName;
+-        this.userRoles = userRoles;
+-    }
+-
+-    //Getters and Setters
+-
+-    public Long getRoleId() {
+-        return roleId;
+-    }
+-
+-    public void setRoleId(Long roleId) {
+-        this.roleId = roleId;
+-    }
+-
+-    public String getRoleName() {
+-        return roleName;
+-    }
+-
+-    public void setRoleName(String roleName) {
+-        this.roleName = roleName;
+-    }
+-
+-    public Set<UserRole> getUserRoles() {
+-        return userRoles;
+-    }
+-
+-    public void setUserRoles(Set<UserRole> userRoles) {
+-        this.userRoles = userRoles;
+-    }
+-
+-    //to_string method
+-
+-    @Override
+-    public String toString() {
+-        return "Role{" +
+-                "roleId=" + roleId +
+-                ", roleName='" + roleName + '\'' +
+-                ", userRoles=" + userRoles +
+-                '}';
+-    }
+-}
+Index: src/main/java/com/hostel/hostelPortal/model/User.java
+===================================================================
+diff --git a/src/main/java/com/hostel/hostelPortal/model/User.java b/src/main/java/com/hostel/hostelPortal/model/User.java
+deleted file mode 100644
+--- a/src/main/java/com/hostel/hostelPortal/model/User.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,143 +0,0 @@
+-package com.hostel.hostelPortal.model;
+-
+-import com.fasterxml.jackson.annotation.JsonIgnore;
+-
+-import javax.persistence.*;
+-import java.util.HashSet;
+-import java.util.Set;
+-
+-@Entity
+-//@Access(AccessType.PROPERTY)
+-//@Table(name="users") //if we want DB table name != class name
+-public class User {
+-    // @Column(name="userID",nullable=false) => if DB column name != class var name
+-    @Id // primary key
+-    @GeneratedValue(strategy = GenerationType.AUTO) // auto generated key, surrogate key
+-    private Long  id;
+-    private String userName;
+-    private String password;
+-    private String firstName;
+-    private String lastName;
+-    private String email;
+-    private String phone;
+-    private boolean enabled=true; // for enabling and disabling User
+-    private String profile;
+-
+-    @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.EAGER,mappedBy = "user")//cascading all effects
+-    @JsonIgnore // to avoid circular dependency
+-    private Set<UserRole> userRoles=new HashSet<>();
+-
+-    //Constructors
+-    public User() {
+-    }
+-
+-    public User(Long id, String userName, String password, String firstName, String lastName, String email, String phone, boolean enabled, Set<UserRole> userRoles) {
+-        this.id = id;
+-        this.userName = userName;
+-        this.password = password;
+-        this.firstName = firstName;
+-        this.lastName = lastName;
+-        this.email = email;
+-        this.phone = phone;
+-        this.enabled = enabled;
+-        this.userRoles = userRoles;
+-    }
+-
+-    //Getters and Setters
+-    public Long getId() {
+-        return id;
+-    }
+-
+-    public void setId(Long id) {
+-        this.id = id;
+-    }
+-
+-    public String getUserName() {
+-        return userName;
+-    }
+-
+-    public void setUserName(String userName) {
+-        this.userName = userName;
+-    }
+-
+-    public String getPassword() {
+-        return password;
+-    }
+-
+-    public void setPassword(String password) {
+-        this.password = password;
+-    }
+-
+-    public String getFirstName() {
+-        return firstName;
+-    }
+-
+-    public void setFirstName(String firstName) {
+-        this.firstName = firstName;
+-    }
+-
+-    public String getLastName() {
+-        return lastName;
+-    }
+-
+-    public void setLastName(String lastName) {
+-        this.lastName = lastName;
+-    }
+-
+-    public String getEmail() {
+-        return email;
+-    }
+-
+-    public void setEmail(String email) {
+-        this.email = email;
+-    }
+-
+-    public String getPhone() {
+-        return phone;
+-    }
+-
+-    public void setPhone(String phone) {
+-        this.phone = phone;
+-    }
+-
+-    public boolean isEnabled() {
+-        return enabled;
+-    }
+-
+-    public void setEnabled(boolean enabled) {
+-        this.enabled = enabled;
+-    }
+-
+-    public Set<UserRole> getUserRoles() {
+-        return userRoles;
+-    }
+-
+-    public void setUserRoles(Set<UserRole> userRoles) {
+-        this.userRoles = userRoles;
+-    }
+-
+-    public String getProfile() {
+-        return profile;
+-    }
+-
+-    public void setProfile(String profile) {
+-        this.profile = profile;
+-    }
+-
+-    //to_string method
+-    @Override
+-    public String toString() {
+-        return "User{" +
+-                "id=" + id +
+-                ", userName='" + userName + '\'' +
+-                ", password='" + password + '\'' +
+-                ", firstName='" + firstName + '\'' +
+-                ", lastName='" + lastName + '\'' +
+-                ", email='" + email + '\'' +
+-                ", phone='" + phone + '\'' +
+-                ", enabled=" + enabled +
+-                ", profile='" + profile + '\'' +
+-                ", userRoles=" + userRoles +
+-                '}';
+-    }
+-}
+Index: src/main/resources/application.properties
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+deleted file mode 100644
+--- a/src/main/resources/application.properties	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,13 +0,0 @@
+-#database configuration
+-
+-spring.datasource.url=jdbc:mysql://localhost:3306/hostel
+-spring.datasource.username=root
+-spring.datasource.password=pass@123
+-
+-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+-
+-#jpa configuration
+-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+-spring.jpa.hibernate.ddl-auto=update
+-spring.jpa.show-sql=true
+-spring.jpa.properties.hibernate.format_sql=true
+Index: src/main/java/com/hostel/hostelPortal/service/EmailService.java
+===================================================================
+diff --git a/src/main/java/com/hostel/hostelPortal/service/EmailService.java b/src/main/java/com/hostel/hostelPortal/service/EmailService.java
+deleted file mode 100644
+--- a/src/main/java/com/hostel/hostelPortal/service/EmailService.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,6 +0,0 @@
+-package com.hostel.hostelPortal.service;
+-
+-public interface EmailService {
+-    boolean sendEmail(String message, String subject, String to);
+-
+-}
+Index: pom.xml
+===================================================================
+diff --git a/pom.xml b/pom.xml
+deleted file mode 100644
+--- a/pom.xml	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,61 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+-	<modelVersion>4.0.0</modelVersion>
+-	<parent>
+-		<groupId>org.springframework.boot</groupId>
+-		<artifactId>spring-boot-starter-parent</artifactId>
+-		<version>2.6.5</version>
+-		<relativePath/> <!-- lookup parent from repository -->
+-	</parent>
+-	<groupId>com.hostel</groupId>
+-	<artifactId>hostelPortal</artifactId>
+-	<version>0.0.1-SNAPSHOT</version>
+-	<name>hostelPortal</name>
+-	<description>Backend code for hostel portal</description>
+-	<properties>
+-		<java.version>11</java.version>
+-	</properties>
+-	<dependencies>
+-		<dependency>
+-			<groupId>org.springframework.boot</groupId>
+-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+-		</dependency>
+-		<dependency>
+-			<groupId>org.springframework.boot</groupId>
+-			<artifactId>spring-boot-starter-web</artifactId>
+-		</dependency>
+-
+-		<dependency>
+-			<groupId>mysql</groupId>
+-			<artifactId>mysql-connector-java</artifactId>
+-			<scope>runtime</scope>
+-		</dependency>
+-		<dependency>
+-			<groupId>org.springframework.boot</groupId>
+-			<artifactId>spring-boot-starter-test</artifactId>
+-			<scope>test</scope>
+-		</dependency>
+-
+-		<dependency>
+-			<groupId>com.sun.mail</groupId>
+-			<artifactId>javax.mail</artifactId>
+-			<version>1.6.2</version>
+-		</dependency>
+-		<dependency>
+-			<groupId>junit</groupId>
+-			<artifactId>junit</artifactId>
+-			<scope>test</scope>
+-		</dependency>
+-	</dependencies>
+-
+-	<build>
+-		<plugins>
+-			<plugin>
+-				<groupId>org.springframework.boot</groupId>
+-				<artifactId>spring-boot-maven-plugin</artifactId>
+-			</plugin>
+-		</plugins>
+-	</build>
+-
+-</project>
+Index: src/main/java/com/hostel/hostelPortal/service/UserService.java
+===================================================================
+diff --git a/src/main/java/com/hostel/hostelPortal/service/UserService.java b/src/main/java/com/hostel/hostelPortal/service/UserService.java
+deleted file mode 100644
+--- a/src/main/java/com/hostel/hostelPortal/service/UserService.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,20 +0,0 @@
+-package com.hostel.hostelPortal.service;
+-
+-import com.hostel.hostelPortal.model.User;
+-import com.hostel.hostelPortal.model.UserRole;
+-
+-import java.util.Set;
+-
+-public interface UserService {
+-    // creating user
+-    User createUser(User user, Set<UserRole> userRoles) throws Exception;
+-
+-    //get user by username
+-    User getUser(String username);
+-
+-    //delete user by id
+-    void deleteUser(Long userId);
+-
+-    //update user by id
+-    void updateUser(User user);
+-}
+Index: src/main/java/com/hostel/hostelPortal/repo/UserRepository.java
+===================================================================
+diff --git a/src/main/java/com/hostel/hostelPortal/repo/UserRepository.java b/src/main/java/com/hostel/hostelPortal/repo/UserRepository.java
+deleted file mode 100644
+--- a/src/main/java/com/hostel/hostelPortal/repo/UserRepository.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,8 +0,0 @@
+-package com.hostel.hostelPortal.repo;
+-
+-import com.hostel.hostelPortal.model.User;
+-import org.springframework.data.jpa.repository.JpaRepository;
+-
+-public interface UserRepository extends JpaRepository<User,Long> {//Long data type is related to id of User class
+-    User findByUserName(String username);
+-}
+Index: src/main/java/com/hostel/hostelPortal/hostelPortalApplication.java
+===================================================================
+diff --git a/src/main/java/com/hostel/hostelPortal/hostelPortalApplication.java b/src/main/java/com/hostel/hostelPortal/hostelPortalApplication.java
+deleted file mode 100644
+--- a/src/main/java/com/hostel/hostelPortal/hostelPortalApplication.java	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ /dev/null	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
+@@ -1,68 +0,0 @@
+-package com.hostel.hostelPortal;
+-
+-import com.hostel.hostelPortal.model.Role;
+-import com.hostel.hostelPortal.model.User;
+-import com.hostel.hostelPortal.model.UserRole;
+-import com.hostel.hostelPortal.service.UserService;
+-import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.boot.CommandLineRunner;
+-import org.springframework.boot.SpringApplication;
+-import org.springframework.boot.autoconfigure.SpringBootApplication;
+-
+-import javax.mail.*;
+-import javax.mail.internet.InternetAddress;
+-import javax.mail.internet.MimeBodyPart;
+-import javax.mail.internet.MimeMessage;
+-import javax.mail.internet.MimeMultipart;
+-import java.io.File;
+-import java.util.HashSet;
+-import java.util.Properties;
+-import java.util.Set;
+-
+-@SpringBootApplication
+-public class hostelPortalApplication implements CommandLineRunner {
+-
+-	@Autowired
+-	private UserService userService;
+-
+-	public static void main(String[] args) {
+-		SpringApplication.run(hostelPortalApplication.class, args);
+-	}
+-
+-	@Override
+-	public void run(String... args) throws Exception {
+-		System.out.println("starting code");
+-
+-//	*******************checking user CRUD****************************
+-//		User user = new User();
+-//		user.setFirstName("Bhargav");
+-//		user.setLastName("Mehta");
+-//		user.setUserName("bhargav029");
+-//		user.setPassword("abc");
+-//		user.setEmail("abc@gmail.com");
+-//
+-//		Role role1=new Role();
+-//		role1.setRoleId(44L);
+-//		role1.setRoleName("ADMIN");
+-//
+-//		UserRole userRole = new UserRole();
+-//		userRole.setRole(role1);
+-//		userRole.setUser(user);
+-//
+-//		Set<UserRole> userRoleSet=new HashSet<>();
+-//		userRoleSet.add(userRole);
+-//
+-//		User user1=this.userService.createUser(user,userRoleSet);
+-//		System.out.println(user1.getUserName());
+-
+-// 		****************************checking mail********************
+-//		System.out.println("preparing to send message ...");
+-//		String message = "Hello , Dear, this is message for security check . ";
+-//		String subject = "CodersArea : Confirmation";
+-//		String to = "abc@iiitb.ac.in";
+-//		String from = "hostel.iiitb1@gmail.com";
+-
+-		//sendEmail(message,subject,to,from);
+-		//sendAttach(message,subject,to,from);
+-	}
+-}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3\" name=\"Changes\" comment=\"changed VCS root for addition of frontend\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/compiler.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/encodings.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/jarRepositories.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/.browserslistrc\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/.editorconfig\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/.gitignore\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/.vscode/extensions.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/.vscode/launch.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/.vscode/tasks.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/README.md\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/angular.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/karma.conf.js\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/package-lock.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/package.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/app/app.component.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/app/app.component.html\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/app/app.component.spec.ts\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/app/app.component.ts\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/assets/.gitkeep\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/environments/environment.prod.ts\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/environments/environment.ts\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/favicon.ico\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/index.html\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/main.ts\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/polyfills.ts\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/styles.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/src/test.ts\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/tsconfig.app.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/tsconfig.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelFrontend/tsconfig.spec.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/.gitignore\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/.mvn/wrapper/maven-wrapper.jar\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/.mvn/wrapper/maven-wrapper.properties\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/mvnw\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/mvnw.cmd\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/pom.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/EmailController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/UserController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/hostelPortalApplication.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/EmailRequest.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/EmailResponse.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/Role.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/User.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/UserRole.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/repo/RoleRepository.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/repo/UserRepository.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/EmailService.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/UserService.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/EmailServiceImpl.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/UserServiceImpl.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/main/resources/application.properties\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hostelServer/src/test/java/com/hostel/hostelPortal/HostelPortalApplicationTests.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/hostelServer\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"JpbToolWindowState\">\r\n    <option name=\"myId2FirstActivated\">\r\n      <map>\r\n        <entry key=\"com.haulmont.jpb.jpaInspector\" value=\"true\" />\r\n        <entry key=\"com.haulmont.jpb.jpaPalette\" value=\"true\" />\r\n        <entry key=\"com.haulmont.jpb.jpaStructure\" value=\"true\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"myId2Visible\">\r\n      <map>\r\n        <entry key=\"com.haulmont.jpb.jpaInspector\" value=\"false\" />\r\n        <entry key=\"com.haulmont.jpb.jpaPalette\" value=\"false\" />\r\n        <entry key=\"com.haulmont.jpb.jpaStructure\" value=\"false\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"279YJfF4CmkKZNh1jB9ollcpLMb\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"DatabaseDriversLRU\" value=\"mysql\" />\r\n    <property name=\"RequestMappingsPanelOrder0\" value=\"0\" />\r\n    <property name=\"RequestMappingsPanelOrder1\" value=\"1\" />\r\n    <property name=\"RequestMappingsPanelWidth0\" value=\"75\" />\r\n    <property name=\"RequestMappingsPanelWidth1\" value=\"75\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/hostelServer\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\mehta\\OneDrive - iiit-b\\sem2\\spe\\Projects\\My project\\hostelPortal\\hostelServer\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"HostelPortalApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"hostelPortal\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.hostel.hostelPortal.hostelPortalApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3\" name=\"Changes\" comment=\"\" />\r\n      <created>1648733700021</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1648733700021</updated>\r\n      <workItem from=\"1648733701177\" duration=\"9433000\" />\r\n      <workItem from=\"1648977215344\" duration=\"14761000\" />\r\n      <workItem from=\"1649315519370\" duration=\"2239000\" />\r\n      <workItem from=\"1649323608181\" duration=\"134000\" />\r\n      <workItem from=\"1649335339644\" duration=\"1451000\" />\r\n      <workItem from=\"1649440162744\" duration=\"1487000\" />\r\n      <workItem from=\"1649510188907\" duration=\"1957000\" />\r\n      <workItem from=\"1649585695544\" duration=\"12000\" />\r\n      <workItem from=\"1649602077407\" duration=\"10675000\" />\r\n      <workItem from=\"1649755031193\" duration=\"4447000\" />\r\n      <workItem from=\"1649760360728\" duration=\"597000\" />\r\n      <workItem from=\"1649913877137\" duration=\"932000\" />\r\n      <workItem from=\"1649914909236\" duration=\"975000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Connected to DB and created User table\">\r\n      <created>1648735695335</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1648735695335</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"USER CRUD operations\">\r\n      <created>1649069344496</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649069344496</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Added email functionality\">\r\n      <created>1649682949234</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649682949234</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"SHOW_ROOT_NAMES\" value=\"true\" />\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Connected to DB and created User table\" />\r\n    <MESSAGE value=\"USER CRUD operations\" />\r\n    <MESSAGE value=\"Added email functionality\" />\r\n    <MESSAGE value=\"changed VCS root for addition of frontend\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"changed VCS root for addition of frontend\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0d518618a8c648ac1c7de4f005e5ad3991300482)
++++ b/.idea/workspace.xml	(date 1649917089994)
+@@ -5,62 +5,29 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="changed VCS root for addition of frontend">
+-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/.browserslistrc" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/.editorconfig" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/.vscode/extensions.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/.vscode/launch.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/.vscode/tasks.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/README.md" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/angular.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/karma.conf.js" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/package-lock.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/package.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.css" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.html" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.spec.ts" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.ts" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/assets/.gitkeep" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/environments/environment.prod.ts" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/environments/environment.ts" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/favicon.ico" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/index.html" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/main.ts" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/polyfills.ts" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/styles.css" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/test.ts" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/tsconfig.app.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/tsconfig.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelFrontend/tsconfig.spec.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/mvnw" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/mvnw.cmd" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/pom.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/EmailController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/UserController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/hostelPortalApplication.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/EmailRequest.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/EmailResponse.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/Role.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/User.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/UserRole.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/repo/RoleRepository.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/repo/UserRepository.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/EmailService.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/UserService.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/EmailServiceImpl.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/UserServiceImpl.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/resources/application.properties" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hostelServer/src/test/java/com/hostel/hostelPortal/HostelPortalApplicationTests.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/hostelServer" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/controller/EmailController.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/controller/UserController.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/hostelPortalApplication.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/EmailRequest.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/Role.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/User.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/UserRole.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/repo/RoleRepository.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/repo/UserRepository.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/service/EmailService.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/service/UserService.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/service/impl/EmailServiceImpl.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/service/impl/UserServiceImpl.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/com/hostel/hostelPortal/HostelPortalApplicationTests.java" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -76,7 +43,7 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
+-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/hostelServer" />
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="GitSEFilterConfiguration">
+     <file-type-list>
+@@ -128,7 +95,7 @@
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$/hostelServer" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+   </component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
+@@ -164,7 +131,8 @@
+       <workItem from="1649755031193" duration="4447000" />
+       <workItem from="1649760360728" duration="597000" />
+       <workItem from="1649913877137" duration="932000" />
+-      <workItem from="1649914909236" duration="975000" />
++      <workItem from="1649914909236" duration="1538000" />
++      <workItem from="1649916485460" duration="599000" />
+     </task>
+     <task id="LOCAL-00001" summary="Connected to DB and created User table">
+       <created>1648735695335</created>
+@@ -187,7 +155,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1649682949234</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="changed VCS root for addition of frontend">
++      <created>1649916233409</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1649916233409</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
