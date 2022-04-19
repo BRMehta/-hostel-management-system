@@ -1,15 +1,18 @@
 package com.hostel.hostelPortal.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 //@Access(AccessType.PROPERTY)
 //@Table(name="users") //if we want DB table name != class name
-public class User {
+public class User implements UserDetails {
     // @Column(name="userID",nullable=false) => if DB column name != class var name
     @Id // primary key
     @GeneratedValue(strategy = GenerationType.AUTO) // auto generated key, surrogate key
@@ -31,7 +34,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String userName, String password, String firstName, String lastName, String email, String phone, boolean enabled, Set<UserRole> userRoles) {
+    public User(Long id, String userName, String password, String firstName, String lastName, String email, String phone, boolean enabled, String profile, Set<UserRole> userRoles) {
         this.id = id;
         this.userName = userName;
         this.password = password;
@@ -40,6 +43,7 @@ public class User {
         this.email = email;
         this.phone = phone;
         this.enabled = enabled;
+        this.profile = profile;
         this.userRoles = userRoles;
     }
 
@@ -58,10 +62,6 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public void setPassword(String password) {
@@ -122,6 +122,39 @@ public class User {
 
     public void setProfile(String profile) {
         this.profile = profile;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Set<Authority> set=new HashSet<>();
+        this.userRoles.forEach(userRole -> {
+            set.add(new Authority(userRole.getRole().getRoleName()));
+        });
+        return set;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
     }
 
     //to_string method

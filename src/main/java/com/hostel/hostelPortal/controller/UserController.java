@@ -12,6 +12,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired
@@ -21,6 +22,7 @@ public class UserController {
     @PostMapping("/") //for saving data use post
     //For fetching JSON data use @RequestBody
     public User createUser(@RequestBody User user) throws Exception {
+        user.setProfile("default.png");
         Role role=new Role();
         role.setRoleId(45L);
         role.setRoleName("NORMAL");
