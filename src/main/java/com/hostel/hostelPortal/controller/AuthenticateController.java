@@ -57,7 +57,7 @@ public class AuthenticateController
     {
         try{
             System.out.println(username + ";;;;" + password);
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username,password));
+            //authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username,password));
             System.out.println("done!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         } catch(DisabledException e) {
             throw new Exception("User disabled " + e.getMessage());

@@ -14,10 +14,8 @@ import java.util.Set;
 @RequestMapping("/user")
 @CrossOrigin("*")
 public class UserController {
-
     @Autowired
     private UserService userService;
-
     //creating user
     @PostMapping("/") //for saving data use post
     //For fetching JSON data use @RequestBody

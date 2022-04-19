@@ -125,6 +125,7 @@ public class User implements UserDetails {
     }
 
     @Override
+    //Authority=role
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<Authority> set=new HashSet<>();
         this.userRoles.forEach(userRole -> {
@@ -139,12 +140,12 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return userName;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
@@ -154,7 +155,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     //to_string method
