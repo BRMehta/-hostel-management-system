@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="initial jwt implementation with unauthorized access error">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/config/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/config/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/config/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/AuthenticateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/Authority.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/JwtRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/JwtResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/UserDetailsServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hostelServer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hostelServer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/AuthenticateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/AuthenticateController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/User.java" afterDir="false" />
     </list>
@@ -143,7 +134,9 @@
       <workItem from="1650169269128" duration="3421000" />
       <workItem from="1650214298881" duration="5512000" />
       <workItem from="1650275554382" duration="18175000" />
-      <workItem from="1650333796169" duration="1963000" />
+      <workItem from="1650333796169" duration="2141000" />
+      <workItem from="1650348509769" duration="1284000" />
+      <workItem from="1650360150295" duration="1914000" />
     </task>
     <task id="LOCAL-00001" summary="Connected to DB and created User table">
       <created>1648735695335</created>
@@ -180,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649917435894</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="initial jwt implementation with unauthorized access error">
+      <created>1650342219464</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1650342219464</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
