@@ -20,6 +20,9 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import {MatCardModule} from '@angular/material/card';
 import { HomeComponent } from './pages/home/home.component';
+import { authInterceptorProviders } from './service/auth.interceptor';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { HomeComponent } from './pages/home/home.component';
     EmailComponent,
     SignupComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,7 @@ import { HomeComponent } from './pages/home/home.component';
     MatProgressSpinnerModule,
     MatCardModule
   ],
-  providers: [MatSnackBar,EmailService],
+  providers: [MatSnackBar,EmailService,authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

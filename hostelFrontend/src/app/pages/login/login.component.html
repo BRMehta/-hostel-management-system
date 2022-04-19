@@ -7,18 +7,26 @@
                         <img src="../../../assets/iiitb_logo.png" alt="iiitb_logo">
                     </div>
                     <h1 class="text-center"> Login here !!</h1>
-                    <form>
+                    <!-- '|' is a filter that formats data to json-->
+                    {{loginData|json}}
+                    <form (ngSubmit)="formSubmit()">
                         <!--Username field-->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>User Name</mat-label>
-                            <input required name="userName" matInput placeholder="Enter here" />
+                            <input 
+                            [(ngModel)]="loginData.username"
+                            name="username"
+                            required name="username" matInput placeholder="Enter here" />
                             <mat-hint>Enter valid user name</mat-hint>
                         </mat-form-field>
 
                         <!--Password field-->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>User Password</mat-label>
-                            <input type="password" required name="userName" matInput placeholder="Enter here" />
+                            <input 
+                            [(ngModel)]="loginData.password"
+                            name="password"
+                            type="password" required name="password" matInput placeholder="Enter here" />
                         </mat-form-field>
                         <div class="container text-center">
                             <button mat-raised-button color="primary" type="submit">Login</button>

@@ -1,15 +1,18 @@
 package com.hostel.hostelPortal.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 //@Access(AccessType.PROPERTY)
 //@Table(name="users") //if we want DB table name != class name
-public class User {
+public class User implements UserDetails {
     // @Column(name="userID",nullable=false) => if DB column name != class var name
     @Id // primary key
     @GeneratedValue(strategy = GenerationType.AUTO) // auto generated key, surrogate key
@@ -59,10 +62,6 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public void setPassword(String password) {
@@ -123,6 +122,40 @@ public class User {
 
     public void setProfile(String profile) {
         this.profile = profile;
+    }
+
+    @Override
+    //Authority=role
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Set<Authority> set=new HashSet<>();
+        this.userRoles.forEach(userRole -> {
+            set.add(new Authority(userRole.getRole().getRoleName()));
+        });
+        return set;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return userName;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
     }
 
     //to_string method

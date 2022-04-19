@@ -14,10 +14,8 @@ import java.util.Set;
 @RequestMapping("/user")
 @CrossOrigin("*")
 public class UserController {
-
     @Autowired
     private UserService userService;
-
     //creating user
     @PostMapping("/") //for saving data use post
     //For fetching JSON data use @RequestBody
@@ -26,6 +24,9 @@ public class UserController {
         Role role=new Role();
         role.setRoleId(45L);
         role.setRoleName("NORMAL");
+
+//        role.setRoleId(44L);
+//        role.setRoleName("ADMIN");
 
         UserRole userRole = new UserRole();
         userRole.setRole(role);
