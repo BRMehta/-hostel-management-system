@@ -8,6 +8,9 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './service/admin.guard';
 import { UserGuard } from './service/user.guard';
+import {WelcomeComponent} from './pages/admin/welcome/welcome.component';
+import { AddStudentComponent } from './pages/admin/add-student/add-student.component';
+import { ViewStudentComponent } from './pages/admin/view-student/view-student.component';
 
 //Array
 const routes: Routes = [
@@ -36,6 +39,25 @@ const routes: Routes = [
     component:DashboardComponent,
     pathMatch:"full",
     canActivate: [AdminGuard],
+    children: [
+      {
+        path: '',
+        component: WelcomeComponent,
+        pathMatch:"full",
+      },
+      
+      {
+        path: 'add-student',
+        component: AddStudentComponent,
+        pathMatch:"full",
+      },
+      {
+        path: 'view-student',
+        component: ViewStudentComponent,
+        pathMatch:"full",
+      },
+    
+    ],
   },
   {
     path:"user-dashboard",

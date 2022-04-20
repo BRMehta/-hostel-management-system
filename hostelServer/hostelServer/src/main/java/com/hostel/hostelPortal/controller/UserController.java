@@ -22,11 +22,11 @@ public class UserController {
     public User createUser(@RequestBody User user) throws Exception {
         user.setProfile("default.png");
         Role role=new Role();
-        role.setRoleId(45L);
-        role.setRoleName("NORMAL");
+//        role.setRoleId(45L);
+//        role.setRoleName("NORMAL");
 
-//        role.setRoleId(44L);
-//        role.setRoleName("ADMIN");
+        role.setRoleId(44L);
+        role.setRoleName("ADMIN");
 
         UserRole userRole = new UserRole();
         userRole.setRole(role);
