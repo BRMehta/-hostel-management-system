@@ -44,17 +44,17 @@ public class UserController {
         return this.userService.getUser(username);
     }
 
-    //delete the user by id
-    @DeleteMapping("/{userId}")
-    public void deleteUser(@PathVariable("userId") Long userId)
-    {
-        this.userService.deleteUser(userId);
-    }
-
     //update user data
     @PutMapping("/update")
     public void updateUser(@RequestBody User user)
     {
         this.userService.updateUser(user);
+    }
+
+    //delete the user by id
+    @DeleteMapping("/{userId}")
+    public void deleteUser(@PathVariable("userId") Long userId)
+    {
+        this.userService.deleteUser(userId);
     }
 }

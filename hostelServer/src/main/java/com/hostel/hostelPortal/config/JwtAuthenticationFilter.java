@@ -33,7 +33,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter
         System.out.println("requestTokenHeader "+requestTokenHeader);
 
         String userName = null;
-        String jwtToken = null;
+        String jwtToken;
         String startsWith="Bearer ";
 
         //checking starts with Bearer
@@ -64,7 +64,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter
 
                     SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
                 }
-                System.out.println("Token in not validated");
+                else
+                    System.out.println("Token in not validated");
             }
             else{
                 System.out.println("Either userName or SecurityContextHolder.getContext().getAuthentication() is null");
