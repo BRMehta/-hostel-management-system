@@ -15,7 +15,7 @@ export class ViewStudentComponent implements OnInit
 
   data=
   {
-    Id:"",
+    id:"",
     userName:"",
     firstname:"",
     lastname:"",
@@ -28,17 +28,30 @@ export class ViewStudentComponent implements OnInit
 
   ngOnInit(): void 
   {
-    this.student.viewUser(this).subscribe((response: any) => 
+    
+  }
+ // flag:boolean=false;
+  x=[];
+  doSubmitForm()
+  {
+
+    ////this.flag=true;
+    this.student.viewUser(this.data.userName).subscribe((response: any) => 
     {
-      this.data = response;
+      //this.flag=false;
+      this.data= response;
       console.log(this.data);
+      Swal.fire('Success !!',this.data.id + this.data.email, 'success');
+
     },
 
     (error) => 
     {
+      //this.flag=false;
       console.log(error);
       Swal.fire('Error !!', 'Error in loading data', 'error');
     });
   }
+
 
 }

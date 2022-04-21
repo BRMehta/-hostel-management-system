@@ -2,37 +2,23 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <table class="table" style="text-align: center">
-            <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Username</th>
-              <th scope="col">Contact Number</th>
-              <th scope="col">Email</th>
-             
-            </tr>
-            </thead>
+          <form (ngSubmit)="doSubmitForm()">
+          
+            <h1>Student Information</h1>
+          
+          <mat-form-field class="field" appearance="outline">
+          <mat-label>UserName</mat-label>
+              <input name="userName" [(ngModel)]="data.userName" matInput>
+          </mat-form-field>
 
-            <tbody>
-
-            <tr >
-              <td>{{data.Id}}</td>
-              <td>{{data.firstname}}</td>
-              <td>{{data.lastname}}</td>
-              <td>{{data.userName}}</td>
-              <td>{{data.phone}}</td>
-              <td>{{data.email}}</td>
-            </tr>
-
-            </tbody>
-
-          </table>
-
+          <div class="text-center">
+                <button  type="submit" mat-raised-button color="primary">submit</button>
+                <button type="reset" mat-raised-button color="accent">Reset</button>
+            </div>
+        </form>
 
         </div>
       </div>
-    </div>
+      </div>
 
  </form>

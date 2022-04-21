@@ -39,32 +39,33 @@ const routes: Routes = [
     component:DashboardComponent,
     pathMatch:"full",
     canActivate: [AdminGuard],
-    children: [
-      {
-        path: '',
-        component: WelcomeComponent,
-        pathMatch:"full",
-      },
-      
-      {
-        path: 'add-student',
-        component: AddStudentComponent,
-        pathMatch:"full",
-      },
-      {
-        path: 'view-student',
-        component: ViewStudentComponent,
-        pathMatch:"full",
-      },
     
-    ],
   },
   {
     path:"user-dashboard",
     component:UserDashboardComponent,
     pathMatch:"full",
     canActivate: [UserGuard],
-  }
+  },
+
+    {
+      path: 'admin-dashboard/welcome',
+      component: WelcomeComponent,
+      pathMatch:"full",
+    },
+    
+    {
+      path: 'admin-dashboard/add-student',
+      component: AddStudentComponent,
+      pathMatch:"full",
+    },
+    {
+      path: 'admin-dashboard/view-student',
+      component: ViewStudentComponent,
+      pathMatch:"full",
+    },
+  
+  
 ];
 
 @NgModule({
