@@ -27,6 +27,9 @@ import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { AddStudentComponent } from './pages/admin/add-student/add-student.component';
 import { ViewStudentComponent } from './pages/admin/view-student/view-student.component';
+import { DeleteStudentComponent } from './pages/admin/delete-student/delete-student.component';
+import { UpdateStudentComponent } from './pages/admin/update-student/update-student.component';
+import { ViewAllStudentComponent } from './pages/admin/view-all-student/view-all-student.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { ViewStudentComponent } from './pages/admin/view-student/view-student.co
     SidebarComponent,
     WelcomeComponent,
     AddStudentComponent,
-    ViewStudentComponent
+    ViewStudentComponent,
+    DeleteStudentComponent,
+    UpdateStudentComponent,
+    ViewAllStudentComponent
   ],
   imports: [
     BrowserModule,
