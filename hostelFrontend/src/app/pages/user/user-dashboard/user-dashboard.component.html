@@ -1,1 +1,14 @@
-<h1>Welcome to NORMAL USER Dashboard</h1>
+<div class="container text-center">
+    <button mat-raised-button class="ml20 mt20 mb20"
+    routerLink="/user-dashboard/new-request">New Requests</button>
+    <button mat-raised-button class="ml20 mt20 mb20" 
+    routerLink="/user-dashboard/pending-request">Pending Requests</button>
+    <button mat-raised-button class="ml20 mt20 mb20" 
+    routerLink="/user-dashboard/accepted-request">Accepted Requests</button>
+    <button mat-raised-button class="ml20 mt20 mb20"
+    routerLink="/user-dashboard/rejected-request">Rejected Requests</button>
+    <button mat-raised-button class="ml20 mt20 mb20"
+    routerLink="/user-dashboard/completed-request">Completed Requests</button>
+</div>
+
+<router-outlet></router-outlet>

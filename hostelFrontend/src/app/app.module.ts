@@ -29,6 +29,7 @@ import { AcceptedRequestComponent } from './pages/user/laundry/accepted-request/
 import { RejectedRequestComponent } from './pages/user/laundry/rejected-request/rejected-request.component';
 import { CompletedRequestComponent } from './pages/user/laundry/completed-request/completed-request.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatCardModule,
     MatTabsModule,
     MatRadioModule,
+    MatTableModule
   ],
   providers: [MatSnackBar,EmailService,authInterceptorProviders],
   bootstrap: [AppComponent]

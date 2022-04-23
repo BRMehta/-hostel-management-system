@@ -5,9 +5,15 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { AcceptedRequestComponent } from './pages/user/laundry/accepted-request/accepted-request.component';
+import { CompletedRequestComponent } from './pages/user/laundry/completed-request/completed-request.component';
+import { NewRequestComponent } from './pages/user/laundry/new-request/new-request.component';
+import { PendingRequestComponent } from './pages/user/laundry/pending-request/pending-request.component';
+import { RejectedRequestComponent } from './pages/user/laundry/rejected-request/rejected-request.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './service/admin.guard';
 import { UserGuard } from './service/user.guard';
+
 
 //Array
 const routes: Routes = [
@@ -40,8 +46,29 @@ const routes: Routes = [
   {
     path:"user-dashboard",
     component:UserDashboardComponent,
-    pathMatch:"full",
     canActivate: [UserGuard],
+    children:[
+      {
+        path:'new-request',
+        component:NewRequestComponent,
+      },
+      {
+        path:'pending-request',
+        component:PendingRequestComponent
+      },
+      {
+        path:'accepted-request',
+        component:AcceptedRequestComponent
+      },
+      {
+        path:'rejected-request',
+        component:RejectedRequestComponent
+      },
+      {
+        path:'completed-request',
+        component:CompletedRequestComponent
+      },
+    ]
   }
 ];
 
@@ -50,3 +77,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
