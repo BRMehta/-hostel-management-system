@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 import { LaundryService } from 'src/app/service/laundry.service';
 import { LoginService } from 'src/app/service/login.service';
+
 export class laundryRequest {
   constructor(
     public id: number,
@@ -26,30 +27,13 @@ export class laundryRequest {
   styleUrls: ['./rejected-request.component.css']
 })
 export class RejectedRequestComponent implements OnInit {
-
-  rejectedReqs:laundryRequest[]=[];
-  constructor(private hhtp:HttpClient,private laundry:LaundryService,
-              private login:LoginService, private snack:MatSnackBar) { }
-
+  rejectedReqs$: Observable<laundryRequest[]> | undefined;
+  constructor(private laundry:LaundryService,
+              private login:LoginService, private snack:MatSnackBar) 
+              {
+              }
+ 
   ngOnInit(): void {
-    this.getRejectedRequests();
-  }
-  getRejectedRequests(){
-    this.laundry.getRejectedRequestsById(this.login.getUser().id).subscribe(
-      (rejectedReqs)=>{
-        console.log('success');
-        console.log(rejectedReqs);
-        this.snack.open('Success!','OK',{
-          duration:3000,
-        })
-      },
-      (error)=>{
-        console.log('Error!');
-        console.log(error);
-        this.snack.open('Invalid Details! Try again','OK',{
-          duration:3000,
-        })
-      }
-    )
+    this.rejectedReqs$ = this.laundry.getRejectedRequestsById(this.login.getUser().id);
   }
 }

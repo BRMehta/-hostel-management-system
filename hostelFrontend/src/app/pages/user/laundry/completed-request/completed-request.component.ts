@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 import { LaundryService } from 'src/app/service/laundry.service';
 import { LoginService } from 'src/app/service/login.service';
+
 export class laundryRequest {
   constructor(
     public id: number,
@@ -26,30 +27,13 @@ export class laundryRequest {
   styleUrls: ['./completed-request.component.css']
 })
 export class CompletedRequestComponent implements OnInit {
-
-  completedReqs:laundryRequest[]=[];
-  constructor(private hhtp:HttpClient,private laundry:LaundryService,
-              private login:LoginService, private snack:MatSnackBar) { }
-
+  completedReqs$: Observable<laundryRequest[]> | undefined;
+  constructor(private laundry:LaundryService,
+              private login:LoginService, private snack:MatSnackBar) 
+              {
+              }
+ 
   ngOnInit(): void {
-    this.getCompletedRequests();
-  }
-  getCompletedRequests(){
-    this.laundry.getCompletedRequestsById(this.login.getUser().id).subscribe(
-      (completedReqs)=>{
-        console.log('success');
-        console.log(completedReqs);
-        this.snack.open('Success!','OK',{
-          duration:3000,
-        })
-      },
-      (error)=>{
-        console.log('Error!');
-        console.log(error);
-        this.snack.open('Invalid Details! Try again','OK',{
-          duration:3000,
-        })
-      }
-    )
+    this.completedReqs$ = this.laundry.getCompletedRequestsById(this.login.getUser().id);
   }
 }

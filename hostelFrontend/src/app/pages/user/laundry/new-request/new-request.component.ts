@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { LaundryService } from 'src/app/service/laundry.service';
 import { LoginService } from 'src/app/service/login.service';
 
@@ -19,7 +18,7 @@ export class NewRequestComponent implements OnInit {
     requestTime:'',
   }
   constructor(private snack:MatSnackBar, private laundry:LaundryService,
-    private login:LoginService,private router:Router) { }
+    private login:LoginService) { }
 
   ngOnInit(): void {
   }
