@@ -12,12 +12,36 @@ import {WelcomeComponent} from './pages/admin/welcome/welcome.component';
 import { AddStudentComponent } from './pages/admin/add-student/add-student.component';
 import { ViewStudentComponent } from './pages/admin/view-student/view-student.component';
 import { DeleteStudentComponent } from './pages/admin/delete-student/delete-student.component';
+import {SportshomeComponent} from "./pages/sportshome/sportshome.component";
+import {SportudashComponent} from "./pages/sportudash/sportudash.component";
+import {SportsheaderComponent} from "./pages/sportsheader/sportsheader.component";
+import {SportsidenavComponent} from "./pages/sportsidenav/sportsidenav.component";
 
 //Array
 const routes: Routes = [
   {
     path:"",
     component:HomeComponent,
+    pathMatch:"full"
+  },
+  {
+    path:"sportshome",
+    component:SportshomeComponent,
+    pathMatch:"full"
+  },
+  {
+    path:"sportudash",
+    component:SportudashComponent,
+    pathMatch:"full"
+  },
+  {
+    path:"sportsheader",
+    component:SportsheaderComponent,
+    pathMatch:"full"
+  },
+  {
+    path:"sportssidenav",
+    component:SportsidenavComponent,
     pathMatch:"full"
   },
   {
@@ -35,8 +59,6 @@ const routes: Routes = [
     component:EmailComponent,
     pathMatch:"full"
   },
- 
-
   {
     path:"user-dashboard",
     component:UserDashboardComponent,
@@ -53,11 +75,11 @@ const routes: Routes = [
   //     component: WelcomeComponent,
   //     pathMatch:"full",
   //   },
-    
+
   //   {
   //     path: 'add-student',
   //     component: AddStudentComponent,
-      
+
   //   },
   //   {
   //     path: 'view-student',
@@ -70,7 +92,7 @@ const routes: Routes = [
       component:DashboardComponent,
       //pathMatch:"full",
       canActivate: [AdminGuard],
-    
+
     children: [
       {
         path: '',
@@ -89,10 +111,10 @@ const routes: Routes = [
         path: 'admin-dashboard/delete-student',
         component: DeleteStudentComponent,
       },
-     
+
     ]
   }
-  
+
 ];
 
 @NgModule({

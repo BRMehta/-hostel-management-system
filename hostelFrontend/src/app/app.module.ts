@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { EmailComponent } from './components/email/email.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -30,6 +31,12 @@ import { ViewStudentComponent } from './pages/admin/view-student/view-student.co
 import { DeleteStudentComponent } from './pages/admin/delete-student/delete-student.component';
 import { UpdateStudentComponent } from './pages/admin/update-student/update-student.component';
 import { ViewAllStudentComponent } from './pages/admin/view-all-student/view-all-student.component';
+import { SportudashComponent } from './pages/sportudash/sportudash.component';
+import { SportsidenavComponent } from './pages/sportsidenav/sportsidenav.component';
+import { SportshomeComponent } from './pages/sportshome/sportshome.component';
+import { SportsheaderComponent } from './pages/sportsheader/sportsheader.component';
+import {MatTableModule} from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +54,11 @@ import { ViewAllStudentComponent } from './pages/admin/view-all-student/view-all
     ViewStudentComponent,
     DeleteStudentComponent,
     UpdateStudentComponent,
-    ViewAllStudentComponent
+    ViewAllStudentComponent,
+    SportudashComponent,
+    SportsidenavComponent,
+    SportshomeComponent,
+    SportsheaderComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +74,9 @@ import { ViewAllStudentComponent } from './pages/admin/view-all-student/view-all
     HttpClientModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule,
+    MatTableModule
   ],
   providers: [MatSnackBar,EmailService,authInterceptorProviders],
   bootstrap: [AppComponent]

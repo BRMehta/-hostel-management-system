@@ -4,9 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="Sports Initial commit">
+    <list default="true" id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="Created New Sports Messaging functionalities">
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/interface/equipment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsheader/sportsheader.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsheader/sportsheader.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsheader/sportsheader.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsheader/sportsheader.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportshome/sportshome.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportshome/sportshome.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportshome/sportshome.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportshome/sportshome.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsidenav/sportsidenav.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsidenav/sportsidenav.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsidenav/sportsidenav.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsidenav/sportsidenav.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportudash/sportudash.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportudash/sportudash.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportudash/sportudash.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportudash/sportudash.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/service/sportuser.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/service/sportuser.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/service/helper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/service/login.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,19 +100,22 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/v-dashboard" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/hostelFrontend/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.hostel.hostelPortal.model" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/hostelFrontend/src/app/service" />
+      <recent name="$PROJECT_DIR$/hostelFrontend/src/app/pages" />
       <recent name="C:\Users\mehta\OneDrive\Desktop\-hostel-management-system\hostelServer" />
       <recent name="C:\Users\mehta\OneDrive - iiit-b\sem2\spe\Projects\My project\hostelPortal\hostelServer" />
     </key>
@@ -104,13 +134,13 @@
     <configuration name="generated-requests#14" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="14" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="7" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests#8" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="8" runType="Run single request">
+    <configuration name="generated-requests#15" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="15" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests#9" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="9" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="home.component.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/-hostel-management-system/hostelFrontend/src/app/pages/home/home.component.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="HostelPortalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -136,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.home.component.html" />
+        <item itemvalue="HTTP Request.generated-requests#15" />
         <item itemvalue="HTTP Request.generated-requests#14" />
         <item itemvalue="HTTP Request.generated-requests#10" />
         <item itemvalue="HTTP Request.generated-requests#9" />
-        <item itemvalue="HTTP Request.generated-requests#8" />
-        <item itemvalue="HTTP Request.generated-requests#7" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +209,16 @@
       <workItem from="1650462542317" duration="296000" />
       <workItem from="1650606919623" duration="1666000" />
       <workItem from="1650618077477" duration="4935000" />
-      <workItem from="1650628377752" duration="4718000" />
+      <workItem from="1650628377752" duration="9248000" />
+      <workItem from="1650690138372" duration="1466000" />
+      <workItem from="1650702996250" duration="6610000" />
+      <workItem from="1650718133320" duration="1342000" />
+      <workItem from="1650730866289" duration="4048000" />
+      <workItem from="1650795736905" duration="4626000" />
+      <workItem from="1650790917558" duration="11904000" />
+      <workItem from="1650806552579" duration="1674000" />
+      <workItem from="1650809505195" duration="2022000" />
+      <workItem from="1650816045255" duration="5555000" />
     </task>
     <task id="LOCAL-00001" summary="Connected to DB and created User table">
       <created>1648735695335</created>
@@ -265,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650618749874</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Created New Sports Messaging functionalities">
+      <created>1650633630099</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1650633630099</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +344,7 @@
     <MESSAGE value="working login and signup" />
     <MESSAGE value="working login and signup (backend)" />
     <MESSAGE value="Sports Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sports Initial commit" />
+    <MESSAGE value="Created New Sports Messaging functionalities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created New Sports Messaging functionalities" />
   </component>
 </project>

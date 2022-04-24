@@ -1,3 +1,19 @@
+POST http://localhost:8087/ap1/v1/Sports_m
+Content-Type: application/json
+
+{
+   "equipmentId" : 101,
+   "equipmentName" : "Badminton_rckts",
+   "quantity" : 1,
+   "issueDate" : "2022-04-13",
+   "returnDate" : "2022-04-26",
+   "status" : 1
+}
+
+<> 2022-04-22T190413.401.json
+
+###
+
 PUT http://localhost:8087/ap1/v1/Sports_e/101?quantity=2
 
 <> 2022-04-22T174435.401.json
