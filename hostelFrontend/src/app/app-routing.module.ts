@@ -10,6 +10,7 @@ import { CompletedRequestComponent } from './pages/user/laundry/completed-reques
 import { NewRequestComponent } from './pages/user/laundry/new-request/new-request.component';
 import { PendingRequestComponent } from './pages/user/laundry/pending-request/pending-request.component';
 import { RejectedRequestComponent } from './pages/user/laundry/rejected-request/rejected-request.component';
+import { UpdateRequestComponent } from './pages/user/laundry/update-request/update-request.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './service/admin.guard';
 import { UserGuard } from './service/user.guard';
@@ -67,6 +68,10 @@ const routes: Routes = [
       {
         path:'completed-request',
         component:CompletedRequestComponent
+      },
+      {
+        path:'update',
+        component:UpdateRequestComponent
       },
     ]
   }

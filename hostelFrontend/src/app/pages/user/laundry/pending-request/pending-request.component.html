@@ -8,6 +8,7 @@
         <th>weightOfCloths</th>
         <th>clothsDry</th>
         <th>numberOfIronedCloths</th>
+        <th>Action</th>
       </tr>
       </thead>
       <tbody>
@@ -18,6 +19,10 @@
         <td><span>{{laundryReq.weightOfCloths}}</span></td>
         <td><span>{{laundryReq.clothsDry}}</span></td>
         <td><span>{{laundryReq.numberOfIronedCloths}}</span></td>
+        <td>
+          <button mat-raised-button (click)="updateLaundryReq(laundryReq)" class="mr10" color='primary'>Update</button>
+          <button mat-raised-button (click)="removeLaundryReq(laundryReq.id)" color='primary'>Remove</button>
+        </td>
       </tr>
       </tbody>
     </table>

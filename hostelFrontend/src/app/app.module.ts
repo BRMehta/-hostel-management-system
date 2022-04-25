@@ -30,6 +30,7 @@ import { RejectedRequestComponent } from './pages/user/laundry/rejected-request/
 import { CompletedRequestComponent } from './pages/user/laundry/completed-request/completed-request.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTableModule} from '@angular/material/table';
+import { UpdateRequestComponent } from './pages/user/laundry/update-request/update-request.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {MatTableModule} from '@angular/material/table';
     AcceptedRequestComponent,
     RejectedRequestComponent,
     CompletedRequestComponent,
+    UpdateRequestComponent,
   ],
   imports: [
     BrowserModule,
