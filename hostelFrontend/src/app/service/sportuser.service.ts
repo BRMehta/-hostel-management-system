@@ -14,4 +14,9 @@ export class SportuserService {
   {
     return this.http.get(`${baseUrl}/ap1/v1/Sports_e`)
   }
+
+  public addRequest(sportuser:any)
+  {
+    return this.http.post(`${baseUrl}/ap1/v1/Sports_m`,sportuser)
+  }
 }

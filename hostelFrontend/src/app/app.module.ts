@@ -36,6 +36,7 @@ import { SportsidenavComponent } from './pages/sportsidenav/sportsidenav.compone
 import { SportshomeComponent } from './pages/sportshome/sportshome.component';
 import { SportsheaderComponent } from './pages/sportsheader/sportsheader.component';
 import {MatTableModule} from '@angular/material/table';
+import { SportuformComponent } from './pages/sportuform/sportuform.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import {MatTableModule} from '@angular/material/table';
     SportudashComponent,
     SportsidenavComponent,
     SportshomeComponent,
-    SportsheaderComponent
+    SportsheaderComponent,
+    SportuformComponent
   ],
   imports: [
     BrowserModule,

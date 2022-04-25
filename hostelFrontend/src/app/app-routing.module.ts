@@ -16,6 +16,7 @@ import {SportshomeComponent} from "./pages/sportshome/sportshome.component";
 import {SportudashComponent} from "./pages/sportudash/sportudash.component";
 import {SportsheaderComponent} from "./pages/sportsheader/sportsheader.component";
 import {SportsidenavComponent} from "./pages/sportsidenav/sportsidenav.component";
+import {SportuformComponent} from "./pages/sportuform/sportuform.component";
 
 //Array
 const routes: Routes = [
@@ -37,6 +38,11 @@ const routes: Routes = [
   {
     path:"sportsheader",
     component:SportsheaderComponent,
+    pathMatch:"full"
+  },
+  {
+    path:"sportuform",
+    component:SportuformComponent,
     pathMatch:"full"
   },
   {
