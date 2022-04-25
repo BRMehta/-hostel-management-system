@@ -22,4 +22,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         return user;
     }
+
+    public UserDetails loadUserByUsern(String userName) throws UsernameNotFoundException {
+
+        com.hostel.hostelPortal.model.User user=this.userRepository.findByUserName(userName);
+        if(user==null)
+        {
+            System.out.println("User not found");
+            throw new UsernameNotFoundException("No user found!!");
+        }
+        return user;
+    }
 }

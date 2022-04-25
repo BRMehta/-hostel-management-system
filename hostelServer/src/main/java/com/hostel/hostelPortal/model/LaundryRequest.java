@@ -1,5 +1,6 @@
 package com.hostel.hostelPortal.model;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -22,34 +23,35 @@ public class LaundryRequest{
     private Date acceptanceTime;
 
     @DateTimeFormat(pattern="dd/MM/yyyy hh:mm:ss")
+    private Date rejectionTime;
+
+    @DateTimeFormat(pattern="dd/MM/yyyy hh:mm:ss")
     private Date completionTime;
 
     int weightOfCloths;
 
     Boolean clothsDry;
 
-    Boolean ironCloths;
-
     int numberOfIronedCloths;
 
     double amount;
 
-    Boolean payment;//true=>done, false=>not done
+    Boolean payment=false;//true=>done, false=>not done
 
     String rejectionReason;
 
     public LaundryRequest() {
     }
 
-    public LaundryRequest(Long id, User user, Date requestTime, Date acceptanceTime, Date completionTime, int weightOfCloths, Boolean clothsDry, Boolean ironCloths, int numberOfIronedCloths, double amount, Boolean payment, String rejectionReason) {
+    public LaundryRequest(Long id, User user, Date requestTime, Date acceptanceTime, Date rejectionTime, Date completionTime, int weightOfCloths, Boolean clothsDry, int numberOfIronedCloths, double amount, Boolean payment, String rejectionReason) {
         this.id = id;
         this.user = user;
         this.requestTime = requestTime;
         this.acceptanceTime = acceptanceTime;
+        this.rejectionTime = rejectionTime;
         this.completionTime = completionTime;
         this.weightOfCloths = weightOfCloths;
         this.clothsDry = clothsDry;
-        this.ironCloths = ironCloths;
         this.numberOfIronedCloths = numberOfIronedCloths;
         this.amount = amount;
         this.payment = payment;
@@ -112,14 +114,6 @@ public class LaundryRequest{
         this.clothsDry = clothsDry;
     }
 
-    public Boolean getIronCloths() {
-        return ironCloths;
-    }
-
-    public void setIronCloths(Boolean ironCloths) {
-        this.ironCloths = ironCloths;
-    }
-
     public int getNumberOfIronedCloths() {
         return numberOfIronedCloths;
     }
@@ -152,10 +146,19 @@ public class LaundryRequest{
         this.rejectionReason = rejectionReason;
     }
 
+    public Date getRejectionTime() {
+        return rejectionTime;
+    }
+
+    public void setRejectionTime(Date rejectionTime) {
+        this.rejectionTime = rejectionTime;
+    }
+
     public Long getStudentId()
     {
         return this.getUser().getId();
     }
+
     @Override
     public String toString() {
         return "LaundryRequest{" +
@@ -163,10 +166,10 @@ public class LaundryRequest{
                 ", user=" + user +
                 ", requestTime=" + requestTime +
                 ", acceptanceTime=" + acceptanceTime +
+                ", rejectionTime=" + rejectionTime +
                 ", completionTime=" + completionTime +
                 ", weightOfCloths=" + weightOfCloths +
                 ", clothsDry=" + clothsDry +
-                ", ironCloths=" + ironCloths +
                 ", numberOfIronedCloths=" + numberOfIronedCloths +
                 ", amount=" + amount +
                 ", payment=" + payment +

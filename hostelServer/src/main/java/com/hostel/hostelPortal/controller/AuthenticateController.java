@@ -22,11 +22,6 @@ import java.security.Principal;
 @CrossOrigin("*")
 //@CrossOrigin(origins="http://localhost:4200")
 @RestController
-
-
-
-
-
 public class AuthenticateController
 {
     @Autowired

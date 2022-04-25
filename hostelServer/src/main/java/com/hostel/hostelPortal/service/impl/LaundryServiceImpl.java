@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,7 +20,7 @@ public class LaundryServiceImpl implements LaundryService {
     @Autowired
     private LaundryRepository laundryRepository;
     @Override
-    public LaundryRequest createrLaundryRequest(LaundryRequest laundryRequest) throws Exception {
+    public LaundryRequest createLaundryRequest(LaundryRequest laundryRequest) throws Exception {
         //to check if student id is already present in DB or not?
         LaundryRequest req;
         Optional<User> local= this.userRepository.findById(laundryRequest.getStudentId());
@@ -45,13 +46,58 @@ public class LaundryServiceImpl implements LaundryService {
     }
 
     @Override
-    public void updateWeight(Long reqId,int weight) throws Exception {
-        int rowsAffected=this.laundryRepository.setWeightInLaundryRequest(reqId,weight);
+    public void updateLaundryrequest(Long reqId,int weight,boolean dryCloths,int numIronCloths) throws Exception {
+        int rowsAffected=this.laundryRepository.updateLaundryrequest(reqId,weight,dryCloths,numIronCloths);
         if(rowsAffected==0)
             throw new Exception("Laundry Request ID is not present in DB");
     }
     @Override
     public void deleteLaundryRequest(Long reqId) {
         this.laundryRepository.deleteById(reqId);
+    }
+
+    @Override
+    public List<LaundryRequest> getPendingRequest(Long userId) {
+        return this.laundryRepository.findByUser_IdAndAcceptanceTimeIsNullAndRejectionTimeIsNull(userId);
+    }
+
+    @Override
+    public List<LaundryRequest> getPendingRequestById(Long reqId) {
+        return this.laundryRepository.findByIdAndAcceptanceTimeIsNullAndRejectionTimeIsNull(reqId);
+    }
+
+    @Override
+    public List<LaundryRequest> getAllPendingRequest() {
+        return this.laundryRepository.findByAcceptanceTimeIsNullAndRejectionTimeIsNull();
+    }
+
+    @Override
+    public List<LaundryRequest> getRejectedRequest(Long reqId) {
+        return this.laundryRepository.findByUser_IdAndRejectionTimeIsNotNull(reqId);
+    }
+
+    @Override
+    public List<LaundryRequest> getAllRejectedRequest() {
+        return this.laundryRepository.findByRejectionTimeIsNotNull();
+    }
+
+    @Override
+    public List<LaundryRequest> getAcceptedRequest(Long reqId) {
+        return this.laundryRepository.findByUser_IdAndAcceptanceTimeIsNotNull(reqId);
+    }
+
+    @Override
+    public List<LaundryRequest> getAllAcceptedRequest() {
+        return this.laundryRepository.findByAcceptanceTimeIsNotNull();
+    }
+
+    @Override
+    public List<LaundryRequest> getCompletedRequest(Long reqId) {
+        return this.laundryRepository.findByUser_IdAndCompletionTimeIsNotNull(reqId);
+    }
+
+    @Override
+    public List<LaundryRequest> getAllCompletedRequest() {
+        return this.laundryRepository.findByCompletionTimeIsNotNull();
     }
 }
