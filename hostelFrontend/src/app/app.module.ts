@@ -31,6 +31,12 @@ import { CompletedRequestComponent } from './pages/user/laundry/completed-reques
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTableModule} from '@angular/material/table';
 import { UpdateRequestComponent } from './pages/user/laundry/update-request/update-request.component';
+import { AcceptedAdminRequestComponent } from './pages/admin/accepted-admin-request/accepted-admin-request.component';
+import { CompletedAdminRequestComponent } from './pages/admin/completed-admin-request/completed-admin-request.component';
+import { PendingAdminRequestComponent } from './pages/admin/pending-admin-request/pending-admin-request.component';
+import { RejectedAdminRequestComponent } from './pages/admin/rejected-admin-request/rejected-admin-request.component';
+import { UpdateAdminRequestComponent } from './pages/admin/update-admin-request/update-admin-request.component';
+import { SetLaundryPricesComponent } from './pages/admin/set-laundry-prices/set-laundry-prices.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +54,12 @@ import { UpdateRequestComponent } from './pages/user/laundry/update-request/upda
     RejectedRequestComponent,
     CompletedRequestComponent,
     UpdateRequestComponent,
+    AcceptedAdminRequestComponent,
+    CompletedAdminRequestComponent,
+    PendingAdminRequestComponent,
+    RejectedAdminRequestComponent,
+    UpdateAdminRequestComponent,
+    SetLaundryPricesComponent,
   ],
   imports: [
     BrowserModule,

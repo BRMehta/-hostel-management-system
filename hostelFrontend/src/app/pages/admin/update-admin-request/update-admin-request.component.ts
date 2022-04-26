@@ -1,9 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import {  Observable, Subscription } from 'rxjs';
+import {  Observable, Subscription, windowWhen } from 'rxjs';
 import { LaundryService } from 'src/app/service/laundry.service';
-import { LoginService } from 'src/app/service/login.service';
 
 export class laundryRequest {
   constructor(
@@ -22,13 +21,12 @@ export class laundryRequest {
   ) {
   }
 }
-
 @Component({
-  selector: 'app-update-request',
-  templateUrl: './update-request.component.html',
-  styleUrls: ['./update-request.component.css']
+  selector: 'app-update-admin-request',
+  templateUrl: './update-admin-request.component.html',
+  styleUrls: ['./update-admin-request.component.css']
 })
-export class UpdateRequestComponent implements OnInit {
+export class UpdateAdminRequestComponent implements OnInit {
   laundryRequest={
     weightOfCloths:0,
     clothsDry:false,
@@ -39,13 +37,13 @@ export class UpdateRequestComponent implements OnInit {
   laundryReq$!: Observable<laundryRequest>;
   id!: number;
   
-  constructor(private route: ActivatedRoute,private laundry:LaundryService,
-    private snack:MatSnackBar,private router:Router) {
+  constructor(private router: Router,private laundry:LaundryService,
+    private snack:MatSnackBar,private activatedRoute:ActivatedRoute) {
 
     }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
+    this.activatedRoute.queryParams.subscribe(params => {
        this.id= params["data"];
       console.log(this.id);
     });
@@ -61,8 +59,7 @@ export class UpdateRequestComponent implements OnInit {
     }
     this.laundry.updateLaundryRequestById(this.id,this.laundryRequest.weightOfCloths,
       this.laundryRequest.clothsDry,this.laundryRequest.numberOfIronedCloths);
-      this.router.navigate(['/user-dashboard/pending-request'])  
-      .then(() => {
+      this.router.navigate(['/admin-dashboard/pending-admin-request']).then(() => {
         window.location.reload();
       });
   }

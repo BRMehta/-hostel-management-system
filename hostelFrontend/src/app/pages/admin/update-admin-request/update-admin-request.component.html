@@ -9,12 +9,13 @@
                     <form (ngSubmit)="formSubmit()" style="text-align: center; ">
 
                         <!--id of the request-->
-                        <button mat-raised-button style="width:50%">request id : {{id}}</button>
+                        <button mat-raised-button style="width:25%">request id :</button>
+                        <button mat-raised-button style="width:25%">{{id}}</button>
 
                         <!--weightOfCloths field-->
                         <br>
                         <button type='button' mat-raised-button style="width:50%" class="mt20"> Enter Weight of cloths(kg) </button>
-                        <br>
+                        
                         <input style="text-align: center;" class="ml20 mr20 mb20 mt20"
                         [(ngModel)]="laundryRequest.weightOfCloths"
                         type="number" min="0" name="weightOfCloths"
@@ -33,7 +34,7 @@
 
                         <!--numberOfIronedCloths field-->
                         <button type='button' mat-raised-button style="width:50%"> number Of Ironed Cloths </button>
-                        <br>
+                        
                         <input style="text-align: center;" class="ml20 mr20 mb20 mt20"
                         [(ngModel)]="laundryRequest.numberOfIronedCloths"
                         name="numberOfIronedCloths"

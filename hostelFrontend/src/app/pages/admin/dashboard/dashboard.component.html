@@ -1,6 +1,14 @@
-<mat-tab-group>
-    <mat-tab label="First"> Content 1 </mat-tab>
-    <mat-tab label="Second"> Content 2 </mat-tab>
-    <mat-tab label="Third"> Content 3 </mat-tab>
-  </mat-tab-group>
-  
+<div class="container text-center">
+  <button mat-raised-button class="ml20 mt20 mb20" color="accent" 
+  routerLink="/admin-dashboard/set-laundry-prices">Set Laundry Prices</button>
+  <button mat-raised-button class="ml20 mt20 mb20" color="accent"
+  routerLink="/admin-dashboard/pending-admin-request">Pending Requests</button>
+  <button mat-raised-button class="ml20 mt20 mb20" color="accent"
+  routerLink="/admin-dashboard/accepted-admin-request">View Laundry Prices and Accepted Requests</button>
+  <button mat-raised-button class="ml20 mt20 mb20" color="accent"
+  routerLink="/admin-dashboard/rejected-admin-request">Rejected Requests</button>
+  <button mat-raised-button class="ml20 mt20 mb20" color="accent"
+  routerLink="/admin-dashboard/completed-admin-request">Completed Requests</button>
+</div>
+
+<router-outlet></router-outlet>

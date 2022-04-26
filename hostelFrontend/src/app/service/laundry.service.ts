@@ -20,12 +20,17 @@ export class LaundryService {
     return this.http.post(`${baseUrl}/laundry/`,laundryRequest)
   }
 
+    //set laundry prices
+    public setLaundryPrices(laundryprices:any)
+    {
+      return this.http.post(`${baseUrl}/laundry/setLaundryPrices`,laundryprices)
+    }
+
   //update laundry request by id
   public updateLaundryRequestById(reqId:number,weight:number,dryCloths:boolean,numIronCloths:number)
   {
     this.http.put<any>(`${baseUrl}/laundry/update/${reqId}/${weight}/${dryCloths}/${numIronCloths}`,{}).subscribe(
       (data:any)=>{
-        this.route.navigate(['user-dashboard/pending-request']);
         this.snack.open('Updated!','OK',{
           duration:3000,
         })
@@ -40,12 +45,72 @@ export class LaundryService {
     )
   }
   
+  //accept laundry request by id
+  public acceptLaundryReqbyId(reqId:number)
+  {
+    this.http.put<any>(`${baseUrl}/laundry/accept-pending-req/${reqId}`,{}).subscribe(
+      (data:any)=>{
+        window.location.reload();
+        this.snack.open('Accepted!','OK',{
+          duration:3000,
+        })
+      },
+      (error)=>{
+        console.log('Error!');
+        console.log(error);
+        this.snack.open('Invalid Details! Try again','OK',{
+          duration:3000,
+        })
+      }
+    )
+  }
+  
+  //complete laundry request by id
+  public completeLaundryReqbyId(reqId:number,amount:number)
+  {
+    this.http.put<any>(`${baseUrl}/laundry/complete-pending-req/${reqId}/${amount}`,{}).subscribe(
+      (data:any)=>{
+        window.location.reload();
+        this.snack.open('Request completed!','OK',{
+          duration:3000,
+        })
+      },
+      (error)=>{
+        console.log('Error!');
+        console.log(error);
+        this.snack.open('Invalid Details! Try again','OK',{
+          duration:3000,
+        })
+      }
+    )
+  }
+    //reject laundry request by id
+    public rejectLaundryReqbyId(reqId:number,reason:string)
+    {
+      this.http.put<any>(`${baseUrl}/laundry/reject-pending-req/${reqId}/${reason}`,{}).subscribe(
+        (data:any)=>{
+          window.location.reload();
+          this.snack.open('Rejected!','OK',{
+            duration:3000,
+          })
+        },
+        (error)=>{
+          console.log('Error!');
+          console.log(error);
+          this.snack.open('Invalid Details! Try again','OK',{
+            duration:3000,
+          })
+        }
+      )
+    }
+     
   //delete laundry request by id
   public deleteLaundryRequestById(reqId:number)
   {
     return this.http.delete(`${baseUrl}/laundry/${reqId}`)
   }
 
+ 
   //get pending requests by id
   public getPendingRequestsById(id:number)
   {
@@ -74,6 +139,12 @@ export class LaundryService {
   public getAcceptedRequests()
   {
     return this.http.get<laundryRequest[]>(`${baseUrl}/laundry/accepted-req`)
+  }
+
+  //get laundry prices
+  public getLaundryPrices()
+  {
+    return this.http.get(`${baseUrl}/laundry/getLaundryPrices`)
   }
 
   //get rejected requests by id
