@@ -58,5 +58,10 @@ public class UserServiceImpl implements UserService {
         this.userRepository.save(user);
     }
 
+    @Override
+    public String getEmailAddress(Long studId) {
+        return this.userRepository.findById(studId).get().getEmail();
+    }
+
 
 }

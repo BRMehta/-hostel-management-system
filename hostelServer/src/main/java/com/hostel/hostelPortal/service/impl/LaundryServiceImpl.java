@@ -1,7 +1,9 @@
 package com.hostel.hostelPortal.service.impl;
 
+import com.hostel.hostelPortal.model.LaundryPrices;
 import com.hostel.hostelPortal.model.LaundryRequest;
 import com.hostel.hostelPortal.model.User;
+import com.hostel.hostelPortal.repo.LaundryPricesRepository;
 import com.hostel.hostelPortal.repo.LaundryRepository;
 import com.hostel.hostelPortal.repo.UserRepository;
 import com.hostel.hostelPortal.service.LaundryService;
@@ -19,6 +21,9 @@ public class LaundryServiceImpl implements LaundryService {
 
     @Autowired
     private LaundryRepository laundryRepository;
+
+    @Autowired
+    private LaundryPricesRepository laundryPricesRepository;
     @Override
     public LaundryRequest createLaundryRequest(LaundryRequest laundryRequest) throws Exception {
         //to check if student id is already present in DB or not?
@@ -51,6 +56,41 @@ public class LaundryServiceImpl implements LaundryService {
         if(rowsAffected==0)
             throw new Exception("Laundry Request ID is not present in DB");
     }
+
+    @Override
+    public void acceptLaundryReqbyId(Long reqId) throws Exception {
+        System.out.println(reqId);
+        int rowsAffected=this.laundryRepository.acceptLaundryrequest(reqId);
+        if(rowsAffected==0)
+            throw new Exception("Laundry Request ID is not present in DB");
+    }
+
+    @Override
+    public void rejectLaundryReqbyId(Long reqId, String reason) throws Exception {
+        int rowsAffected=this.laundryRepository.rejectLaundryrequest(reqId,reason);
+        if(rowsAffected==0)
+            throw new Exception("Laundry Request ID is not present in DB");
+    }
+
+    @Override
+    public void completeLaundryReqbyId(Long reqId, double amount) throws Exception {
+        int rowsAffected=this.laundryRepository.completeLaundryrequest(reqId,amount);
+        if(rowsAffected==0)
+            throw new Exception("Laundry Request ID is not present in DB");
+    }
+
+    @Override
+    public LaundryPrices setLaundryPrices(LaundryPrices laundryPrices) {
+        return this.laundryPricesRepository.save(laundryPrices);
+    }
+
+    @Override
+    public List<LaundryPrices> getLaundryPrices() {
+        return this.laundryPricesRepository.findAll();
+    }
+
+
+
     @Override
     public void deleteLaundryRequest(Long reqId) {
         this.laundryRepository.deleteById(reqId);
@@ -83,12 +123,12 @@ public class LaundryServiceImpl implements LaundryService {
 
     @Override
     public List<LaundryRequest> getAcceptedRequest(Long reqId) {
-        return this.laundryRepository.findByUser_IdAndAcceptanceTimeIsNotNull(reqId);
+        return this.laundryRepository.findByUser_IdAndAcceptanceTimeIsNotNullAndCompletionTimeIsNull(reqId);
     }
 
     @Override
     public List<LaundryRequest> getAllAcceptedRequest() {
-        return this.laundryRepository.findByAcceptanceTimeIsNotNull();
+        return this.laundryRepository.findByAcceptanceTimeIsNotNullAndCompletionTimeIsNull();
     }
 
     @Override

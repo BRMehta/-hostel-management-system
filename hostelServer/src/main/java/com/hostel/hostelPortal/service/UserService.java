@@ -17,4 +17,6 @@ public interface UserService {
 
     //update user by id
     void updateUser(User user);
+
+    String getEmailAddress(Long studId);
 }

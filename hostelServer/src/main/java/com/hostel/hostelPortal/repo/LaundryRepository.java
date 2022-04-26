@@ -18,13 +18,28 @@ public interface LaundryRepository extends JpaRepository<LaundryRequest,Long> {
     int updateLaundryrequest(@Param("reqId") Long id,@Param("weight") Integer new_weight,
                              @Param("dryCloths") Boolean dryCloths,@Param("numIronCloths") Integer numIronCloths);
 
+    @Modifying
+    @Transactional
+    @Query("update LaundryRequest lr set lr.acceptanceTime=CURRENT_TIME where lr.id = :reqId")
+    int acceptLaundryrequest(@Param("reqId") Long id);
+
+    @Modifying
+    @Transactional
+    @Query("update LaundryRequest lr set lr.rejectionTime=CURRENT_TIME,lr.rejectionReason=:reason where lr.id = :reqId")
+    int rejectLaundryrequest(@Param("reqId") Long id,@Param("reason") String reason);
+
+    @Modifying
+    @Transactional
+    @Query("update LaundryRequest lr set lr.completionTime=CURRENT_TIME,lr.amount=:amount where lr.id = :reqId")
+    int completeLaundryrequest(@Param("reqId") Long id,@Param("amount") double amount);
+
     List<LaundryRequest> findByUser_IdAndAcceptanceTimeIsNullAndRejectionTimeIsNull(@Param("reqId") Long id);
 
     List<LaundryRequest> findByAcceptanceTimeIsNullAndRejectionTimeIsNull();
 
-    List<LaundryRequest> findByUser_IdAndAcceptanceTimeIsNotNull(@Param("reqId") Long id);
+    List<LaundryRequest> findByUser_IdAndAcceptanceTimeIsNotNullAndCompletionTimeIsNull(@Param("reqId") Long id);
 
-    List<LaundryRequest> findByAcceptanceTimeIsNotNull();
+    List<LaundryRequest> findByAcceptanceTimeIsNotNullAndCompletionTimeIsNull();
 
     List<LaundryRequest> findByUser_IdAndRejectionTimeIsNotNull(@Param("reqId") Long id);
 

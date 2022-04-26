@@ -1,5 +1,6 @@
 package com.hostel.hostelPortal.controller;
 
+import com.hostel.hostelPortal.model.LaundryPrices;
 import com.hostel.hostelPortal.model.LaundryRequest;
 import com.hostel.hostelPortal.service.LaundryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,15 @@ public class LaundryController {
         return this.laundryService.createLaundryRequest(laundryRequest);
     }
 
+    @PostMapping("/setLaundryPrices") //for saving data use post
+    //For fetching JSON data use @RequestBody
+    public LaundryPrices setLaundryPrices(@RequestBody LaundryPrices laundryPrices) {
+        return this.laundryService.setLaundryPrices(laundryPrices);
+    }
+    @GetMapping("/getLaundryPrices")
+    public List<LaundryPrices> getLaundryPrices() {
+        return this.laundryService.getLaundryPrices();
+    }
     //get pending laundry request based on Id for user dashboard
     @GetMapping("/pending-req/{userId}")
     public List<LaundryRequest> getPendingRequest(@PathVariable("userId") Long userId)
@@ -89,10 +99,27 @@ public class LaundryController {
         this.laundryService.updateLaundryrequest(reqId,weight,dryCloths,numIronCloths);
     }
 
+    @PutMapping("/accept-pending-req/{reqId}")
+    public void acceptLaundryReqbyId(@PathVariable("reqId") Long reqId) throws Exception {
+        this.laundryService.acceptLaundryReqbyId(reqId);
+    }
+
+    @PutMapping("/reject-pending-req/{reqId}/{reason}")
+    public void rejectLaundryReqbyId(@PathVariable("reqId") Long reqId,@PathVariable("reason") String reason) throws Exception {
+        this.laundryService.rejectLaundryReqbyId(reqId,reason);
+    }
+
+    @PutMapping("/complete-pending-req/{reqId}/{amount}")
+    public void completeLaundryReqbyId(@PathVariable("reqId") Long reqId,@PathVariable("amount") double amount) throws Exception {
+        this.laundryService.completeLaundryReqbyId(reqId,amount);
+    }
+
     //delete the user by id
     @DeleteMapping("/{reqId}")
     public void deleteLaundryRequest(@PathVariable("reqId") Long reqId)
     {
         this.laundryService.deleteLaundryRequest(reqId);
     }
+
+
 }

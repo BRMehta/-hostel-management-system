@@ -44,6 +44,15 @@ public class UserController {
         return this.userService.getUser(username);
     }
 
+    @GetMapping("/get-email-address/{studId}")
+    public String getEmailAddressById(@PathVariable("studId") Long studId)
+    {
+        System.out.println("getEmailAddressById called");
+        String str=this.userService.getEmailAddress(studId);
+        System.out.println(str);
+        return str;
+    }
+
     //update user data
     @PutMapping("/update")
     public void updateUser(@RequestBody User user)
