@@ -103,6 +103,26 @@ export class LaundryService {
         }
       )
     }
+
+    //change payment status by Reqid
+    public PaymentReceivedById(reqId:number)
+    {
+      this.http.put<any>(`${baseUrl}/laundry/update-payment-status/${reqId}`,{}).subscribe(
+        (data:any)=>{
+          window.location.reload();
+          this.snack.open('Payment status Changed!','OK',{
+            duration:3000,
+          })
+        },
+        (error)=>{
+          console.log('Error!');
+          console.log(error);
+          this.snack.open('Invalid Details! Try again','OK',{
+            duration:3000,
+          })
+        }
+      )
+    }
      
   //delete laundry request by id
   public deleteLaundryRequestById(reqId:number)

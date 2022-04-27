@@ -10,6 +10,7 @@
         <th>numberOfIronedCloths</th>
         <th>Amount</th>
         <th>Payment</th>
+        <th>Action</th>
       </tr>
       </thead>
       <tbody>
@@ -22,6 +23,8 @@
         <td><span>{{laundryReq.numberOfIronedCloths}}</span></td>
         <td><span>{{laundryReq.amount}}</span></td>
         <td><span>{{laundryReq.payment}}</span></td>
+        <td><button mat-raised-button (click)="PaymentReceivedById(laundryReq.id)"
+          [disabled]="laundryReq.payment" color='primary'>Change Payment Status</button></td>
       </tr>
       </tbody>
     </table>

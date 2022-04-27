@@ -36,4 +36,7 @@ export class CompletedAdminRequestComponent implements OnInit {
   ngOnInit(): void {
     this.completedReqs$ = this.laundry.getCompletedRequests();
   }
+  PaymentReceivedById(reqId:number){
+    this.laundry.PaymentReceivedById(reqId);
+  }
 }
