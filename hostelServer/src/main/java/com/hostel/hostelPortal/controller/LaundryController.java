@@ -109,6 +109,11 @@ public class LaundryController {
         this.laundryService.rejectLaundryReqbyId(reqId,reason);
     }
 
+    @PutMapping("/update-payment-status/{reqId}")
+    public void updatePaymentStatusbyReqId(@PathVariable("reqId") Long reqId) throws Exception {
+        this.laundryService.updatePaymentStatusbyReqId(reqId);
+    }
+
     @PutMapping("/complete-pending-req/{reqId}/{amount}")
     public void completeLaundryReqbyId(@PathVariable("reqId") Long reqId,@PathVariable("amount") double amount) throws Exception {
         this.laundryService.completeLaundryReqbyId(reqId,amount);

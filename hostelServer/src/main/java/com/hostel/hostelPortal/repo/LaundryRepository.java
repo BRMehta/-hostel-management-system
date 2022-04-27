@@ -33,6 +33,11 @@ public interface LaundryRepository extends JpaRepository<LaundryRequest,Long> {
     @Query("update LaundryRequest lr set lr.completionTime=CURRENT_TIME,lr.amount=:amount where lr.id = :reqId")
     int completeLaundryrequest(@Param("reqId") Long id,@Param("amount") double amount);
 
+    @Modifying
+    @Transactional
+    @Query("update LaundryRequest lr set lr.payment=true where lr.id = :reqId")
+    int updatePaymentStatusbyReqId(Long reqId);
+
     List<LaundryRequest> findByUser_IdAndAcceptanceTimeIsNullAndRejectionTimeIsNull(@Param("reqId") Long id);
 
     List<LaundryRequest> findByAcceptanceTimeIsNullAndRejectionTimeIsNull();

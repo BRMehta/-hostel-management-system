@@ -80,6 +80,13 @@ public class LaundryServiceImpl implements LaundryService {
     }
 
     @Override
+    public void updatePaymentStatusbyReqId(Long reqId) throws Exception {
+        int rowsAffected=this.laundryRepository.updatePaymentStatusbyReqId(reqId);
+        if(rowsAffected==0)
+            throw new Exception("Laundry Request ID is not present in DB");
+    }
+
+    @Override
     public LaundryPrices setLaundryPrices(LaundryPrices laundryPrices) {
         return this.laundryPricesRepository.save(laundryPrices);
     }

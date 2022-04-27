@@ -46,4 +46,6 @@ public interface LaundryService {
     List<LaundryPrices> getLaundryPrices();
 
     void completeLaundryReqbyId(Long reqId, double amount) throws Exception;
+
+    void updatePaymentStatusbyReqId(Long reqId) throws Exception;
 }
