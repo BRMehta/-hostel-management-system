@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="working login and signup (backend)">
-      <change afterPath="$PROJECT_DIR$/.idea/-hostel-management-system.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+    <list default="true" id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/assets/BACKGROUND.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostelServer.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14-04-2022_11_52_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14-04-2022_11_52__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="com.haulmont.jpb.JpaEntity" />
       </list>
     </option>
   </component>
@@ -72,11 +75,17 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="show.run.dashboard.notification" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -85,6 +94,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mehta\OneDrive\Desktop\-hostel-management-system\hostelServer" />
       <recent name="C:\Users\mehta\OneDrive - iiit-b\sem2\spe\Projects\My project\hostelPortal\hostelServer" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.hostel.hostelPortal.service.impl" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.hostel.hostelPortal.config" />
@@ -147,7 +159,17 @@
       <workItem from="1650348509769" duration="1284000" />
       <workItem from="1650360150295" duration="15429000" />
       <workItem from="1650462542317" duration="296000" />
-      <workItem from="1650479292873" duration="333000" />
+      <workItem from="1650479292873" duration="1007000" />
+      <workItem from="1650529225188" duration="6806000" />
+      <workItem from="1650595825333" duration="5723000" />
+      <workItem from="1650617296460" duration="12663000" />
+      <workItem from="1650636186866" duration="9087000" />
+      <workItem from="1650651888468" duration="3187000" />
+      <workItem from="1650768798413" duration="12005000" />
+      <workItem from="1650784206975" duration="13028000" />
+      <workItem from="1650851239842" duration="29489000" />
+      <workItem from="1650986128636" duration="1601000" />
+      <workItem from="1651037294872" duration="17882000" />
     </task>
     <task id="LOCAL-00001" summary="Connected to DB and created User table">
       <created>1648735695335</created>
@@ -212,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650387570723</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="initial commit">
+      <created>1650479687907</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1650479687907</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +273,17 @@
     <MESSAGE value="login and then redirection (backend)" />
     <MESSAGE value="working login and signup" />
     <MESSAGE value="working login and signup (backend)" />
-    <option name="LAST_COMMIT_MESSAGE" value="working login and signup (backend)" />
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
