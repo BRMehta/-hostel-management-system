@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatListModule} from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -23,6 +23,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { authInterceptorProviders } from './service/auth.interceptor';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { AddStudentComponent } from './pages/admin/add-student/add-student.component';
+import { ViewStudentComponent } from './pages/admin/view-student/view-student.component';
+import { DeleteStudentComponent } from './pages/admin/delete-student/delete-student.component';
+import { UpdateStudentComponent } from './pages/admin/update-student/update-student.component';
+import { ViewAllStudentComponent } from './pages/admin/view-all-student/view-all-student.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +40,14 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    SidebarComponent,
+    WelcomeComponent,
+    AddStudentComponent,
+    ViewStudentComponent,
+    DeleteStudentComponent,
+    UpdateStudentComponent,
+    ViewAllStudentComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +62,8 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
     FormsModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule
   ],
   providers: [MatSnackBar,EmailService,authInterceptorProviders],
   bootstrap: [AppComponent]

@@ -8,9 +8,18 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './service/admin.guard';
 import { UserGuard } from './service/user.guard';
+import {WelcomeComponent} from './pages/admin/welcome/welcome.component';
+import { AddStudentComponent } from './pages/admin/add-student/add-student.component';
+import { ViewStudentComponent } from './pages/admin/view-student/view-student.component';
+import { DeleteStudentComponent } from './pages/admin/delete-student/delete-student.component';
 
 //Array
 const routes: Routes = [
+  {
+    path:"",
+    component:HomeComponent,
+    pathMatch:"full"
+  },
   {
     path:"signup",
     component:SignupComponent,
@@ -26,23 +35,64 @@ const routes: Routes = [
     component:EmailComponent,
     pathMatch:"full"
   },
-  {
-    path:"",
-    component:HomeComponent,
-    pathMatch:"full"
-  },
-  {
-    path:"admin-dashboard",
-    component:DashboardComponent,
-    pathMatch:"full",
-    canActivate: [AdminGuard],
-  },
+ 
+
   {
     path:"user-dashboard",
     component:UserDashboardComponent,
     pathMatch:"full",
     canActivate: [UserGuard],
+  },
+  // {
+  //       path:"admin-dashboard",
+  //       component:DashboardComponent,
+  //       pathMatch:"full",
+  // },
+  //   {
+  //     path: 'welcome',
+  //     component: WelcomeComponent,
+  //     pathMatch:"full",
+  //   },
+    
+  //   {
+  //     path: 'add-student',
+  //     component: AddStudentComponent,
+      
+  //   },
+  //   {
+  //     path: 'view-student',
+  //     component: ViewStudentComponent,
+  //     pathMatch:"full",
+  //   },
+
+    {
+      path:"admin-dashboard",
+      component:DashboardComponent,
+      //pathMatch:"full",
+      canActivate: [AdminGuard],
+    
+    children: [
+      {
+        path: '',
+        component: WelcomeComponent,
+      },
+
+      {
+        path: 'admin-dashboard/add-student',
+        component: AddStudentComponent,
+      },
+      {
+        path: 'admin-dashboard/view-student',
+        component: ViewStudentComponent,
+      },
+      {
+        path: 'admin-dashboard/delete-student',
+        component: DeleteStudentComponent,
+      },
+     
+    ]
   }
+  
 ];
 
 @NgModule({
