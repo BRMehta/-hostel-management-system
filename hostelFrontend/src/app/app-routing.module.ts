@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EmailComponent } from './components/email/email.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
@@ -12,6 +12,28 @@ import {WelcomeComponent} from './pages/admin/welcome/welcome.component';
 import { AddStudentComponent } from './pages/admin/add-student/add-student.component';
 import { ViewStudentComponent } from './pages/admin/view-student/view-student.component';
 import { DeleteStudentComponent } from './pages/admin/delete-student/delete-student.component';
+import { ViewAllStudentComponent } from './pages/admin/view-all-student/view-all-student.component';
+import { FeesComponent } from './pages/admin/fees/fees.component';
+import { ViewfeesComponent } from './pages/admin/viewfees/viewfees.component';
+import { SetfeesComponent } from './pages/admin/setfees/setfees.component';
+import { UpdatefeesComponent } from './pages/admin/updatefees/updatefees.component';
+import { RoomsComponent } from './pages/admin/rooms/rooms.component';
+import { CalculatefeesComponent } from './pages/admin/calculatefees/calculatefees.component';
+import { CountofroomsComponent } from './pages/admin/countofrooms/countofrooms.component';
+import { CountoffreeroomsComponent } from './pages/admin/countoffreerooms/countoffreerooms.component';
+import { AssignroomComponent } from './pages/admin/assignroom/assignroom.component';
+
+import { InitializeroomComponent } from './pages/admin/initializeroom/initializeroom.component';
+import { UpdateroomComponent } from './pages/admin/updateroom/updateroom.component';
+import { VacateroomComponent } from './pages/admin/vacateroom/vacateroom.component';
+import { IsoccupiedComponent } from './pages/admin/isoccupied/isoccupied.component';
+import { GetroomComponent } from './pages/admin/getroom/getroom.component';
+
+import { welcomeComponent } from 'src/app/pages/user/welcome/welcome.component';
+import { InformationComponent } from './pages/user/information/information.component';
+import { ShowfeesComponent } from './pages/user/showfees/showfees.component';
+import { RoomComponent } from './pages/user/room/room.component';
+
 
 //Array
 const routes: Routes = [
@@ -40,35 +62,38 @@ const routes: Routes = [
   {
     path:"user-dashboard",
     component:UserDashboardComponent,
-    pathMatch:"full",
     canActivate: [UserGuard],
-  },
-  // {
-  //       path:"admin-dashboard",
-  //       component:DashboardComponent,
-  //       pathMatch:"full",
-  // },
-  //   {
-  //     path: 'welcome',
-  //     component: WelcomeComponent,
-  //     pathMatch:"full",
-  //   },
-    
-  //   {
-  //     path: 'add-student',
-  //     component: AddStudentComponent,
+    children:[
       
-  //   },
-  //   {
-  //     path: 'view-student',
-  //     component: ViewStudentComponent,
-  //     pathMatch:"full",
-  //   },
+      {
+        path:'',
+        component: welcomeComponent,
+      },
+      {
+        path: 'welcome',
+        component:  welcomeComponent,
+      },
+      {
+        path:'information',
+        component:InformationComponent,
+      },
+      {
+        path:'showfees',
+        component:ShowfeesComponent,
+      },
+      {
+        path:'room',
+        component:RoomComponent,
+      }
+
+    ]
+    
+
+  },
 
     {
       path:"admin-dashboard",
       component:DashboardComponent,
-      //pathMatch:"full",
       canActivate: [AdminGuard],
     
     children: [
@@ -76,19 +101,97 @@ const routes: Routes = [
         path: '',
         component: WelcomeComponent,
       },
+      {
+        path: 'welcome',
+        component: WelcomeComponent,
+      },
 
       {
-        path: 'admin-dashboard/add-student',
+        path: 'add-student',
         component: AddStudentComponent,
       },
       {
-        path: 'admin-dashboard/view-student',
+        path: 'view-student',
         component: ViewStudentComponent,
       },
       {
-        path: 'admin-dashboard/delete-student',
+        path: 'delete-student',
         component: DeleteStudentComponent,
       },
+      {
+        path:'view-all-student',
+        component:ViewAllStudentComponent,
+      },
+
+        {
+          path:'rooms',
+          component:RoomsComponent,
+          children:
+          [
+            {
+            path:'countofrooms',
+            component:CountofroomsComponent,
+            },
+            {
+              path:'countoffreerooms',
+              component:CountoffreeroomsComponent,
+            },
+            {
+              path:'assignroom',
+              component:AssignroomComponent,
+            },
+            {
+              path:'getroom',
+              component:GetroomComponent,
+            },
+            {
+              path:'initializeroom',
+              component:InitializeroomComponent,
+            },
+            {
+              path:'updateroom',
+              component:UpdateroomComponent,
+            },
+            {
+              path:'vacateroom',
+              component:VacateroomComponent,
+            },
+            {
+              path:'isoccupied',
+              component:IsoccupiedComponent,
+            },
+
+          ]
+        },
+      
+      {
+        path:'fees',
+        component:FeesComponent,
+        children:
+        [
+          {
+            path:'viewfees',
+            component:ViewfeesComponent,
+          },
+
+          {
+            path:'setfees',
+            component:SetfeesComponent,
+          },
+
+          {
+            path:'updatefees',
+            component:UpdatefeesComponent,
+          },
+          {
+            path:'calculatefees',
+            component:CalculatefeesComponent,
+
+          }
+        ]
+
+        
+      }
      
     ]
   }

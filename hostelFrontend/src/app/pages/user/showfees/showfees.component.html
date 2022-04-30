@@ -1,0 +1,11 @@
+
+
+ <h1>ID:     {{fdata.id }}</h1>
+ <h1>MESS FEE PAYABLE:       {{fdata.mess_fees }}</h1>
+ <h1>HOSTEL FEE PAYABLE:   {{fdata.hostel_fees }}</h1>
+
+<form (ngSubmit)="doExportpdf()">
+  <div class="text-center">
+    <button  type="submit" mat-raised-button color="primary">Export to Pdf</button>
+ </div>
+</form>

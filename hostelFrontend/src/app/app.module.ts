@@ -30,6 +30,29 @@ import { ViewStudentComponent } from './pages/admin/view-student/view-student.co
 import { DeleteStudentComponent } from './pages/admin/delete-student/delete-student.component';
 import { UpdateStudentComponent } from './pages/admin/update-student/update-student.component';
 import { ViewAllStudentComponent } from './pages/admin/view-all-student/view-all-student.component';
+import { FeesComponent } from './pages/admin/fees/fees.component';
+import { SetfeesComponent } from './pages/admin/setfees/setfees.component';
+import { UpdatefeesComponent } from './pages/admin/updatefees/updatefees.component';
+import { ViewfeesComponent } from './pages/admin/viewfees/viewfees.component';
+import { LaundryComponent } from './pages/admin/laundry/laundry.component';
+import { RoomsComponent } from './pages/admin/rooms/rooms.component';
+import { SportsComponent } from './pages/admin/sports/sports.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CalculatefeesComponent } from './pages/admin/calculatefees/calculatefees.component';
+import { CountofroomsComponent } from './pages/admin/countofrooms/countofrooms.component';
+import { CountoffreeroomsComponent } from './pages/admin/countoffreerooms/countoffreerooms.component';
+import { IsoccupiedComponent } from './pages/admin/isoccupied/isoccupied.component';
+import { InitializeroomComponent } from './pages/admin/initializeroom/initializeroom.component';
+import { AssignroomComponent } from './pages/admin/assignroom/assignroom.component';
+
+import { VacateroomComponent } from './pages/admin/vacateroom/vacateroom.component';
+import { UpdateroomComponent } from './pages/admin/updateroom/updateroom.component';
+import { GetroomComponent } from './pages/admin/getroom/getroom.component';
+
+import { InformationComponent } from './pages/user/information/information.component';
+import { ShowfeesComponent } from './pages/user/showfees/showfees.component';
+import { SideComponent } from './pages/user/side/side.component';
+import { RoomComponent } from './pages/user/room/room.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +70,29 @@ import { ViewAllStudentComponent } from './pages/admin/view-all-student/view-all
     ViewStudentComponent,
     DeleteStudentComponent,
     UpdateStudentComponent,
-    ViewAllStudentComponent
+    ViewAllStudentComponent,
+    FeesComponent,
+    SetfeesComponent,
+    UpdatefeesComponent,
+    ViewfeesComponent,
+    LaundryComponent,
+    RoomsComponent,
+    SportsComponent,
+    FooterComponent,
+    CalculatefeesComponent,
+    CountofroomsComponent,
+    CountoffreeroomsComponent,
+    IsoccupiedComponent,
+    InitializeroomComponent,
+    AssignroomComponent,
+
+    VacateroomComponent,
+    UpdateroomComponent,
+    GetroomComponent,
+    InformationComponent,
+    ShowfeesComponent,
+    SideComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,
