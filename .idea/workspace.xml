@@ -4,16 +4,209 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="Updated Sports User Dashboard">
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportuform/sportuform.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportuform/sportuform.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportuform/sportuform.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportuform/sportuform.component.ts" afterDir="false" />
+    <list default="true" id="a58ab4e6-5ea5-474d-9ddc-6ff0d26d97f3" name="Changes" comment="Updated Sports Admin Functionalities">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.jpb/persistence-units.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/controller/LaundryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/LaundryPrices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/LaundryRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/fees_month.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/pdfexporter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/room_stud.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/stud_fees.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/model/stud_room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/pdfgenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/repo/LaundryPricesRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/repo/LaundryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/repo/roomstudRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/repo/stud_Room_Repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/repo/stud_feesRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/service/LaundryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hostel/hostelPortal/service/impl/LaundryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/-hostel-management-system.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsidenav/sportsidenav.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsidenav/sportsidenav.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/sportuser.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hostelFrontend/src/app/service/sportuser.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/components/email/email.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/components/email/email.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/components/email/email.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/components/email/email.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/components/navbar/navbar.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/components/navbar/navbar.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/components/navbar/navbar.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/components/navbar/navbar.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/interface/equipment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/addeqform/addeqform.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/addeqform/addeqform.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/addeqform/addeqform.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/addeqform/addeqform.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/add-student/add-student.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/add-student/add-student.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/add-student/add-student.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/add-student/add-student.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/dashboard/dashboard.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/dashboard/dashboard.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/dashboard/dashboard.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/dashboard/dashboard.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/delete-student/delete-student.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/delete-student/delete-student.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/delete-student/delete-student.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/delete-student/delete-student.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/sidebar/sidebar.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/sidebar/sidebar.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/sidebar/sidebar.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/sidebar/sidebar.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/update-student/update-student.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/update-student/update-student.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/update-student/update-student.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/update-student/update-student.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/view-all-student/view-all-student.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/view-all-student/view-all-student.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/view-all-student/view-all-student.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/view-all-student/view-all-student.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/view-student/view-student.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/view-student/view-student.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/view-student/view-student.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/view-student/view-student.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/welcome/welcome.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/welcome/welcome.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/welcome/welcome.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/admin/welcome/welcome.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/home/home.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/home/home.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/home/home.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/home/home.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/login/login.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/login/login.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/login/login.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/login/login.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/reqgranttab/reqgranttab.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/reqgranttab/reqgranttab.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/reqgranttab/reqgranttab.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/reqgranttab/reqgranttab.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/signup/signup.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/signup/signup.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/signup/signup.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/signup/signup.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportadashboard/sportadashboard.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportadashboard/sportadashboard.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportadashboard/sportadashboard.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportadashboard/sportadashboard.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportequpdate/sportequpdate.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportequpdate/sportequpdate.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportequpdate/sportequpdate.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportequpdate/sportequpdate.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportgrant/sportgrant.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportgrant/sportgrant.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportgrant/sportgrant.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportgrant/sportgrant.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsheader/sportsheader.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsheader/sportsheader.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsheader/sportsheader.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsheader/sportsheader.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportshome/sportshome.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportshome/sportshome.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportshome/sportshome.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportshome/sportshome.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsidenav/sportsidenav.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsidenav/sportsidenav.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsidenav/sportsidenav.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportsidenav/sportsidenav.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportudash/sportudash.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportudash/sportudash.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportudash/sportudash.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportudash/sportudash.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportuform/sportuform.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportuform/sportuform.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportuform/sportuform.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/sportuform/sportuform.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/user/user-dashboard/user-dashboard.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/user/user-dashboard/user-dashboard.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/user/user-dashboard/user-dashboard.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/pages/user/user-dashboard/user-dashboard.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/admin.guard.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/admin.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/auth.interceptor.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/email.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/email.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/helper.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/login.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/login.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/pdfgenerator.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/sportuser.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/sportuser.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/user.guard.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/user.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/user.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/app/service/user.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/assets/BACKGROUND.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/assets/iiitb_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelFrontend/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/hostelServer/src/main/java/com/hostel/hostelPortal/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/hostelServer/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/config/JwtAuthenticationEntryPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/config/JwtAuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/config/JwtUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/AuthenticateController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/EmailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/hostelPortalApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/Authority.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/EmailRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/EmailResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/JwtRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/JwtResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/model/UserRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/repo/RoleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/repo/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/EmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/EmailServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/UserDetailsServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/java/com/hostel/hostelPortal/service/impl/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostelServer/src/test/java/com/hostel/hostelPortal/HostelPortalApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,13 +273,13 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/v-dashboard" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/hostelFrontend/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -94,6 +287,7 @@
       <recent name="com.hostel.hostelPortal.model" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/hostelFrontend/src/app/pages" />
       <recent name="$PROJECT_DIR$/hostelFrontend/src/app/service" />
       <recent name="C:\Users\mehta\OneDrive\Desktop\-hostel-management-system\hostelServer" />
@@ -106,6 +300,13 @@
       <recent name="com.hostel.hostelPortal.service" />
       <recent name="com.hostel.hostelPortal.model" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
   </component>
   <component name="RunManager" selected="Spring Boot.HostelPortalApplication">
     <configuration name="generated-requests#10" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="10" runType="Run single request">
@@ -124,8 +325,9 @@
       <method v="2" />
     </configuration>
     <configuration name="HostelPortalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="hostelPortal" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.hostel.hostelPortal.hostelPortalApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -200,7 +402,18 @@
       <workItem from="1650809505195" duration="2022000" />
       <workItem from="1650816045255" duration="5792000" />
       <workItem from="1650882472790" duration="5502000" />
-      <workItem from="1650878685184" duration="3733000" />
+      <workItem from="1650878685184" duration="6863000" />
+      <workItem from="1650890844197" duration="1497000" />
+      <workItem from="1650900501736" duration="8769000" />
+      <workItem from="1650966389800" duration="5255000" />
+      <workItem from="1650965377024" duration="11510000" />
+      <workItem from="1650985955241" duration="9415000" />
+      <workItem from="1650996338153" duration="1632000" />
+      <workItem from="1651169478136" duration="942000" />
+      <workItem from="1651334748742" duration="841000" />
+      <workItem from="1651784364442" duration="4047000" />
+      <workItem from="1651856294284" duration="396000" />
+      <workItem from="1651856848286" duration="378000" />
     </task>
     <task id="LOCAL-00001" summary="Connected to DB and created User table">
       <created>1648735695335</created>
@@ -300,7 +513,42 @@
       <option name="project" value="LOCAL" />
       <updated>1650821716517</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Updated Sports User Dashboard">
+      <created>1650883473208</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1650883473208</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Updated Sports Admin Functionalities">
+      <created>1651784534601</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1651784534601</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Updated Sports Admin Functionalities">
+      <created>1651784592823</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1651784592823</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Updated Sports Admin Functionalities">
+      <created>1651784631034</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1651784631034</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Updated Sports Admin Functionalities">
+      <created>1651784647706</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1651784647706</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,6 +583,7 @@
     <MESSAGE value="Sports Initial commit" />
     <MESSAGE value="Created New Sports Messaging functionalities" />
     <MESSAGE value="Updated Sports User Dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Sports User Dashboard" />
+    <MESSAGE value="Updated Sports Admin Functionalities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Sports Admin Functionalities" />
   </component>
 </project>

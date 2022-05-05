@@ -1,0 +1,6 @@
+{
+  "timestamp": "2022-04-22T12:14:35.293+00:00",
+  "status": 401,
+  "error": "Unauthorized",
+  "path": "/ap1/v1/Sports_e/101"
+}
