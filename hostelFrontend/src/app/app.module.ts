@@ -37,6 +37,12 @@ import { SportshomeComponent } from './pages/sportshome/sportshome.component';
 import { SportsheaderComponent } from './pages/sportsheader/sportsheader.component';
 import {MatTableModule} from '@angular/material/table';
 import { SportuformComponent } from './pages/sportuform/sportuform.component';
+import { SportgrantComponent } from './pages/sportgrant/sportgrant.component';
+import { SportadashboardComponent } from './pages/sportadashboard/sportadashboard.component';
+import { AddeqformComponent } from './pages/addeqform/addeqform.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { SportequpdateComponent } from './pages/sportequpdate/sportequpdate.component';
+import { ReqgranttabComponent } from './pages/reqgranttab/reqgranttab.component';
 
 
 @NgModule({
@@ -60,7 +66,12 @@ import { SportuformComponent } from './pages/sportuform/sportuform.component';
     SportsidenavComponent,
     SportshomeComponent,
     SportsheaderComponent,
-    SportuformComponent
+    SportuformComponent,
+    SportgrantComponent,
+    SportadashboardComponent,
+    AddeqformComponent,
+    SportequpdateComponent,
+    ReqgranttabComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +89,8 @@ import { SportuformComponent } from './pages/sportuform/sportuform.component';
     MatCardModule,
     MatListModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [MatSnackBar,EmailService,authInterceptorProviders],
   bootstrap: [AppComponent]

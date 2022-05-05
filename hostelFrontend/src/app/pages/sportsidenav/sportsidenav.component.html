@@ -1,4 +1,21 @@
-<mat-nav-list>
+<mat-nav-list *ngIf="role=='admin'">
+  <a mat-list-item routerLink="/sportshome" routerLinkActive="list-item-active">
+    <mat-icon>home</mat-icon> Home
+  </a>
+
+  <a mat-list-item routerLink="/sportadashboard" routerLinkActive="list-item-active">
+    <mat-icon>work</mat-icon> Admin Dashboard
+  </a>
+
+  <a mat-list-item routerLink="/sportgrant" routerLinkActive="list-item-active">
+    <mat-icon>flight_land</mat-icon> Requests
+  </a>
+
+  <a mat-list-item> <mat-icon>edit</mat-icon> Link 6 </a>
+</mat-nav-list>
+
+
+<mat-nav-list *ngIf="role=='user'">
 
   <h2 matSubheader class="mt-2">APPLICATIONS</h2>
   <a mat-list-item routerLink="/sportshome" routerLinkActive="list-item-active">
@@ -10,7 +27,8 @@
   <a mat-list-item routerLink="/sportuform" routerLinkActive="list-item-active">
     <mat-icon>assignment</mat-icon> Issue item
   </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 4 </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 5 </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 6 </a>
+
+  <a mat-list-item routerLink="/reqgranttab" routerLinkActive="list-item-active">
+    <mat-icon>edit</mat-icon> Request Status
+  </a>
 </mat-nav-list>

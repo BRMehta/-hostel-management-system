@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AdminGuard} from "../../service/admin.guard";
+import {UserGuard} from "../../service/user.guard";
+import {LoginService} from "../../service/login.service";
 
 @Component({
   selector: 'app-sportsidenav',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SportsidenavComponent implements OnInit {
 
-  constructor() { }
+  role: any;
 
+  constructor(public loginService: LoginService) { }
   ngOnInit(): void {
+    if(this.loginService.getUserRole()=='ADMIN')
+      this.role = "admin";
+    else
+      this.role = "user";
+    console.log("ROLE: ", this.role);
   }
 
 }

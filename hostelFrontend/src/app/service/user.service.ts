@@ -24,4 +24,5 @@ export class UserService {
   {
     return this.http.delete(`${baseUrl}/user/${id}`)
   }
+
 }

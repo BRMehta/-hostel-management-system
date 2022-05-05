@@ -5,9 +5,10 @@
   margin-bottom: 30px;
 }
 
+
 .op{
   text-align: center;
   font-family: "M+ 1c heavy";
+  text-decoration: darkblue;
+  text-underline: darkred;
 }
-
-

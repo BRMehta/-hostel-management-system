@@ -74,6 +74,7 @@ export class LoginService {
   public getUserRole()
   {
     let user=this.getUser();
+    if(user==null) return null;
     return user.authorities[0].authority;
   }
 }

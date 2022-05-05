@@ -5,9 +5,13 @@
   margin-bottom: 30px;
 }
 
+.gprimary{
+  background: #3dbc24;
+}
+
 .op{
   text-align: center;
   font-family: "M+ 1c heavy";
+  text-decoration: darkblue;
+  text-underline: darkred;
 }
-
-

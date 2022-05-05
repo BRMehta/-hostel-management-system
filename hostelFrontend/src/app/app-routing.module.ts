@@ -17,6 +17,11 @@ import {SportudashComponent} from "./pages/sportudash/sportudash.component";
 import {SportsheaderComponent} from "./pages/sportsheader/sportsheader.component";
 import {SportsidenavComponent} from "./pages/sportsidenav/sportsidenav.component";
 import {SportuformComponent} from "./pages/sportuform/sportuform.component";
+import {SportgrantComponent} from "./pages/sportgrant/sportgrant.component";
+import {SportadashboardComponent} from "./pages/sportadashboard/sportadashboard.component";
+import {AddeqformComponent} from "./pages/addeqform/addeqform.component";
+import {SportequpdateComponent} from "./pages/sportequpdate/sportequpdate.component";
+import {ReqgranttabComponent} from "./pages/reqgranttab/reqgranttab.component";
 
 //Array
 const routes: Routes = [
@@ -38,6 +43,31 @@ const routes: Routes = [
   {
     path:"sportsheader",
     component:SportsheaderComponent,
+    pathMatch:"full"
+  },
+  {
+    path:"sportadashboard",
+    component:SportadashboardComponent,
+    pathMatch:"full"
+  },
+  {
+    path:"addeqform",
+    component:AddeqformComponent,
+    pathMatch:"full"
+  },
+  {
+    path:"sportequpdate",
+    component:SportequpdateComponent,
+    pathMatch:"full"
+  },
+  {
+    path:"reqgranttab",
+    component:ReqgranttabComponent,
+    pathMatch:"full"
+  },
+  {
+    path:"sportgrant",
+    component:SportgrantComponent,
     pathMatch:"full"
   },
   {

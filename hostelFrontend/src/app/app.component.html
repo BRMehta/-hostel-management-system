@@ -2,13 +2,12 @@
 <navbar></navbar>
 <!-- dynamic content -->
 
-
 <mat-drawer-container>
-  <mat-drawer mode="side" opened="true">
+  <mat-drawer *ngIf="role=='admin' || role=='user'" mode="side" opened="true">
     <app-sportsidenav></app-sportsidenav>
   </mat-drawer>
   <mat-drawer-content>
-    <app-sportsheader></app-sportsheader>
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
+
