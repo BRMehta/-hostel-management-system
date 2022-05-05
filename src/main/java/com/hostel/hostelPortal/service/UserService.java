@@ -1,8 +1,9 @@
 package com.hostel.hostelPortal.service;
 
-import com.hostel.hostelPortal.model.User;
-import com.hostel.hostelPortal.model.UserRole;
+import com.hostel.hostelPortal.model.*;
 
+import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public interface UserService {
@@ -17,6 +18,31 @@ public interface UserService {
 
     //update user by id
     void updateUser(User user);
+	
+	List<User> getalluser();
+
+    Long getroombyid(Long userId);
+
+
+    void updateroom( long room, long student, Date start, Date end);
+
+    void vacateroom(long userId);
+
+    void create_room_stud(long room,long student,Date start,Date end );
+
+    boolean Isoccupied(Long roomid);
+
+    void initializeRoom(Long room_id);
+
+    Long countofFreerooms();
+
+
+    Long countofrooms();
+
+    stud_fees showFees(Long id);
+
+
+    room_stud ROOMDETAILS(long stud_id);
 
     String getEmailAddress(Long studId);
 }

@@ -75,7 +75,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter
         {
             System.out.println("Either requestTokenHeader is null or token not starts with 'Bearer ' string");
         }
-        System.out.println("no issue, go ahead");
+        //no issue, go ahead
         filterChain.doFilter(request, response);
     }
 }
