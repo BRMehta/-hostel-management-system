@@ -13,16 +13,14 @@ services:
       - MYSQL_DATABASE=hostel
       - MYSQL_USER=user
       - MYSQL_PASSWORD=password
-    depends_on:
-      - "frontend"
-
+  
 
   backend:
     image: "bony211298/hostel_backend"
     container_name: hostel_backend
     restart: on-failure
     environment:
-      - DATABASE_URL=jdbc:mysql://db:3320/hostel
+      - DATABASE_URL=jdbc:mysql://db:3320/hostel?createDatabaseIfNotExist=true
     ports:
       - 8085:8085
     depends_on:
