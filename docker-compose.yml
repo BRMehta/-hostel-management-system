@@ -1,0 +1,38 @@
+version: '3'
+services:
+
+  db:
+    image: "mysql:latest"
+    container_name: hostel_db
+    volumes:
+      - mysql-data:/home/bony
+    ports:
+      - 3320:3320
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=hostel
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    depends_on:
+      - "frontend"
+
+
+  backend:
+    image: "bony211298/hostel_backend"
+    container_name: hostel_backend
+    restart: on-failure
+    environment:
+      - DATABASE_URL=jdbc:mysql://db:3320/hostel
+    ports:
+      - 8085:8085
+    depends_on:
+      - "db"
+
+  frontend:
+    image: "bony211298/hostel_frontend"
+    container_name: hostel_frontend
+    ports:
+      - 4700:4700
+
+volumes:
+  mysql-data:
