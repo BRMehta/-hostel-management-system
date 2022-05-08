@@ -1,36 +1,46 @@
-version: '3'
+
+  
+version: "2.4"
 services:
 
-  db:
-    image: "mysql:latest"
-    container_name: hostel_db
-    volumes:
-      - mysql-data:/home/bony
-    ports:
-      - 3320:3320
+  mysqldb-container:
+    image: mysql/mysql-server
+    container_name: mysqldb-container
+#    volumes:
+#      - mysql-data:/var/lib/mysql
+    networks:
+      - my_net
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=hostel
-      - MYSQL_USER=user
+      - MYSQL_USER=root
       - MYSQL_PASSWORD=password
-  
 
   backend:
-    image: "bony211298/hostel_backend"
-    container_name: hostel_backend
-    restart: on-failure
-    environment:
-      - DATABASE_URL=jdbc:mysql://db:3320/hostel?createDatabaseIfNotExist=true
+    image: bony211298/hostel_backend
+    container_name: backend
+    networks:
+      - my_net
     ports:
-      - 8085:8085
+      - "8085:8085"
+    links:
+      - mysqldb-container
     depends_on:
-      - "db"
+      mysqldb-container:
+        condition: service_healthy
 
   frontend:
-    image: "bony211298/hostel_frontend"
-    container_name: hostel_frontend
+    image: bony211298/frontend_hostel
+    container_name: frontend
+    networks:
+      - my_net
     ports:
-      - 4700:4700
+      - "4200:4200"
+    depends_on:
+      - backend
 
-volumes:
-  mysql-data:
+#volumes:
+#  mysql-data:
+
+networks:
+  my_net:
