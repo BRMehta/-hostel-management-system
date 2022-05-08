@@ -1,17 +1,18 @@
 ---
-- name: run containers
-  hosts: docker
-  become: true
-
+- name: Pull docker image 
+  hosts: all
   tasks:
-    - name: copy docker file
+#     - name: pull docker image
+#       shell: docker pull bony211298/hostel_backend
+      
+#     - name: run docker image backend
+#       shell: docker run -it -d bony211298/hostel_backend /bin/bash
+    - name: Copy Docker Compose File
       copy:
-        src: docker-compose.yml
-        dest: docker-compose.yml
-    - name: shell docker
-      shell:
-        cmd: docker-compose down
+        src: ./docker-compose.yml
+        dest: ./
+    - name: Pull Images
+      command: docker-compose pull
 
-    - name: shell docker
-      shell:
-        cmd: docker-compose up
+    - name: Running Docker Compose File
+      command: docker-compose -f docker-compose.yml up -d
