@@ -6,7 +6,7 @@ services:
     ports:
       - 3308:3306
     volumes:
-      - "./admin.sql:/scripts/admin.sql"
+      - "./admin.sql:/docker-entrypoint-initdb.d/1/admin.sql"
     networks:
       - my_net
     environment:
