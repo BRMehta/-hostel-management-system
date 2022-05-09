@@ -18,7 +18,7 @@ services:
     networks:
       - my_net
     ports:
-      - "8085:8085"
+      - "8087:8087"
     links:
       - mysqldb-container
     depends_on:
@@ -31,7 +31,7 @@ services:
     networks:
       - my_net
     ports:
-      - "4200:4200"
+      - "4201:4201"
     depends_on:
       - backend
 
