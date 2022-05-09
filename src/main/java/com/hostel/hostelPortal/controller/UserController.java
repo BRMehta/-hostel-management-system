@@ -11,6 +11,8 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.PropertyEditorRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -28,15 +30,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
-
-
 @RestController
 @RequestMapping("/user")
 @CrossOrigin("*")
 public class UserController {
     @Autowired
     private UserService userService;
+
+    private static final Logger logger = LogManager.getLogger(UserController.class);
 
     //creating user
     @PostMapping("/") //for saving data use post
@@ -126,15 +127,11 @@ public class UserController {
         return  this.userService.countofFreerooms();
     }
 
-
-
     @GetMapping("/countofrooms")
     public Long counofrooms()
     {
         return  this.userService.countofrooms();
     }
-
-
 
     @GetMapping("/export/pdf")
     public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException
@@ -164,6 +161,7 @@ public class UserController {
         mess_fees=messfee;
         System.out.println(hostel_fees);
         System.out.println(mess_fees);
+        logger.info("hostelfee " + hostelfee + " messfee " + messfee);
     }
 
 
@@ -203,10 +201,12 @@ public class UserController {
         mess_fees=messfee;
 //        hostel_fees=fees_months.getHostel_fees();
 //        mess_fees=fees_months.getMess_fees();
+        logger.info("hostelfee " + hostelfee + " messfee " + messfee);
     }
     @GetMapping("/viewfees")
     public fees_month viewfees()
     {
+        logger.info("Get hostelfee " + hostel_fees + " messfee " + mess_fees);
         return (new fees_month(hostel_fees,mess_fees));
     }
 
