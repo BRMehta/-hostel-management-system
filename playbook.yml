@@ -1,12 +1,8 @@
 ---
-- name: Pull docker image 
+- name: Pull docker images 
   hosts: all
   tasks:
-#     - name: pull docker image
-#       shell: docker pull bony211298/hostel_backend
-      
-#     - name: run docker image backend
-#       shell: docker run -it -d bony211298/hostel_backend /bin/bash
+
     - name: Copy Docker Compose File
       copy:
         src: ./docker-compose.yml
