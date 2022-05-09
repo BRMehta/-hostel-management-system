@@ -3,7 +3,8 @@ services:
   mysqldb-container:
     image: mysql/mysql-server
     container_name: mysqldb-container
-
+    ports:
+      - 3308:3306
     networks:
       - my_net
     environment:
@@ -17,6 +18,8 @@ services:
     container_name: backend
     networks:
       - my_net
+    environment:
+      - DATABASE_URL=jdbc:mysql://mysqldb-container:3306/hostel
     ports:
       - "8087:8087"
     links:
