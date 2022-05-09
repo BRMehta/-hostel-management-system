@@ -103,12 +103,12 @@ public class UserController {
         this.userService.vacateroom(userId);
     }
 
-   /* @PostMapping("/Assignroom")
-    public void room_assign(@RequestBody  room_stud roomdetails) throws Exception
-    {
-        System.out.println(roomdetails);
-        this.userService.create_room_stud(roomdetails);
-    }*/
+    /* @PostMapping("/Assignroom")
+     public void room_assign(@RequestBody  room_stud roomdetails) throws Exception
+     {
+         System.out.println(roomdetails);
+         this.userService.create_room_stud(roomdetails);
+     }*/
     @GetMapping("isoccupied/{roomid}")
     public  boolean isoccupied(@PathVariable("roomid") Long roomid)
     {
@@ -160,14 +160,14 @@ public class UserController {
     @PostMapping("/setfees/{hostelfee}/{messfee}")
     public void setfees(@PathVariable("hostelfee") float hostelfee,@PathVariable("messfee") float messfee)
     {
-     hostel_fees=hostelfee;
-     mess_fees=messfee;
+        hostel_fees=hostelfee;
+        mess_fees=messfee;
         System.out.println(hostel_fees);
         System.out.println(mess_fees);
     }
 
 
-   @GetMapping("/Export/{userid}/Pdf")
+    @GetMapping("/Export/{userid}/Pdf")
     public void exportPDF(@PathVariable("userid") long userid, HttpServletResponse response) throws DocumentException, IOException
     {
         response.setContentType("application/pdf");
@@ -190,38 +190,39 @@ public class UserController {
     @PostMapping("/Assignroom/{room}/{student}/{start}/{end}")
     public void room_assign(@PathVariable("room") long room,@PathVariable("student") long student,@PathVariable("start")  String start,@PathVariable("end")  String end) throws Exception
     {
-         System.out.println("hi");
         Date Start=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(start);
         Date End=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(end);
         this.userService.create_room_stud(room,student,Start,End);
     }
 
 
-    @PutMapping("/updatefees")
-    public void updatefees(@RequestBody  fees_month fees_months)
+    @PutMapping("/updatefees/{hostelfee}/{messfee}")
+    public void updatefees(@PathVariable("hostelfee") float hostelfee,@PathVariable("messfee") float messfee)
     {
-        hostel_fees=fees_months.getHostel_fees();
-        mess_fees=fees_months.getMess_fees();
+        hostel_fees=hostelfee;
+        mess_fees=messfee;
+//        hostel_fees=fees_months.getHostel_fees();
+//        mess_fees=fees_months.getMess_fees();
     }
     @GetMapping("/viewfees")
     public fees_month viewfees()
     {
-       return (new fees_month(hostel_fees,mess_fees));
+        return (new fees_month(hostel_fees,mess_fees));
     }
 
     @GetMapping("/showfees/{id}")
     public  stud_fees showfees(@PathVariable Long id)
-{
-    return   this.userService.showFees(id);
-}
+    {
+        return   this.userService.showFees(id);
+    }
 
 
 
-      @GetMapping("/ROOMDETAILS/{stud_id}")
-      public room_stud ROOMDETAILS(@PathVariable Long stud_id)
-      {
-          return this.userService.ROOMDETAILS(stud_id);
-      }
+    @GetMapping("/ROOMDETAILS/{stud_id}")
+    public room_stud ROOMDETAILS(@PathVariable Long stud_id)
+    {
+        return this.userService.ROOMDETAILS(stud_id);
+    }
 
     @GetMapping("/get-email-address/{studId}")
     public String getEmailAddressById(@PathVariable("studId") Long studId) {
