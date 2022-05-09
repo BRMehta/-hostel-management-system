@@ -1,13 +1,9 @@
-
-  
 version: "2.4"
 services:
-
   mysqldb-container:
     image: mysql/mysql-server
     container_name: mysqldb-container
-#    volumes:
-#      - mysql-data:/var/lib/mysql
+
     networks:
       - my_net
     environment:
@@ -39,8 +35,6 @@ services:
     depends_on:
       - backend
 
-#volumes:
-#  mysql-data:
 
 networks:
   my_net:
