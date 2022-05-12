@@ -1,0 +1,68 @@
+2022-05-10 13:48:06:789 INFO  - Starting hostelPortalApplication using Java 11.0.12 on LAPTOP-9J3C6UL4 with PID 10968 (C:\Users\mehta\OneDrive - iiit-b\sem2\spe\Projects\My project\spe final\-hostel-management-system\target\classes started by mehta in C:\Users\mehta\OneDrive - iiit-b\sem2\spe\Projects\My project\spe final\-hostel-management-system)
+2022-05-10 13:48:06:811 INFO  - No active profile set, falling back to 1 default profile: "default"
+2022-05-10 13:48:08:481 INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-10 13:48:08:802 INFO  - Finished Spring Data repository scanning in 299 ms. Found 9 JPA repository interfaces.
+2022-05-10 13:48:09:900 INFO  - Tomcat initialized with port(s): 8087 (http)
+2022-05-10 13:48:09:915 INFO  - Initializing ProtocolHandler ["http-nio-8087"]
+2022-05-10 13:48:09:917 INFO  - Starting service [Tomcat]
+2022-05-10 13:48:09:918 INFO  - Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-05-10 13:48:10:359 INFO  - Initializing Spring embedded WebApplicationContext
+2022-05-10 13:48:10:359 INFO  - Root WebApplicationContext: initialization completed in 3436 ms
+2022-05-10 13:48:10:642 INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-10 13:48:10:742 INFO  - HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-05-10 13:48:11:061 INFO  - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-10 13:48:11:233 INFO  - HikariPool-1 - Starting...
+2022-05-10 13:48:12:014 INFO  - HikariPool-1 - Start completed.
+2022-05-10 13:48:12:041 INFO  - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-05-10 13:48:15:944 INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-10 13:48:15:961 INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-10 13:48:18:028 WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-10 13:48:18:993 INFO  - Will not secure any request
+2022-05-10 13:48:21:405 INFO  - Started hostelPortalApplication in 15.462 seconds (JVM running for 19.495)
+2022-05-10 13:48:29:491 INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-10 13:48:29:491 INFO  - Initializing Servlet 'dispatcherServlet'
+2022-05-10 13:48:29:494 INFO  - Completed initialization in 2 ms
+2022-05-10 13:49:22:596 INFO  - GET get pending laundry requests
+2022-05-10 13:49:46:341 INFO  - POST create laundry request
+2022-05-10 13:49:54:157 INFO  - POST create laundry request
+2022-05-10 13:50:00:986 INFO  - POST create laundry request
+2022-05-10 13:50:09:368 INFO  - GET get pending laundry requests
+2022-05-10 13:50:14:520 INFO  - DELETE laundry request_id 53
+2022-05-10 13:50:16:453 INFO  - GET get pending laundry requests
+2022-05-10 13:50:31:070 INFO  - PUT update pending laundry request: 52 5 true 5
+2022-05-10 13:50:34:358 INFO  - GET get pending laundry requests
+2022-05-10 13:50:38:229 INFO  - GET get rejected laundry requests
+2022-05-10 13:50:41:937 INFO  - GET get accepted laundry requests
+2022-05-10 13:50:44:636 INFO  - GET get all completed laundry requests
+2022-05-10 13:51:11:143 INFO  - POST set laundry prices: PerKgCost 10.0
+2022-05-10 13:51:11:171 INFO  - POST set laundry prices: IroningCloth 10.0
+2022-05-10 13:51:11:217 INFO  - POST set laundry prices: DryCloths 100.0
+2022-05-10 13:51:15:090 INFO  - GET get all pending requests
+2022-05-10 13:51:26:060 INFO  - PUT update pending laundry request: 52 5 false 0
+2022-05-10 13:51:29:325 INFO  - GET get all pending requests
+2022-05-10 13:51:31:280 INFO  - PUT admin accept laundry request id 52
+2022-05-10 13:51:32:636 INFO  - GET get all pending requests
+2022-05-10 13:51:34:976 INFO  - PUT admin rejected laundry request id 51
+2022-05-10 13:51:43:680 INFO  - GET get all pending requests
+2022-05-10 13:51:48:094 INFO  - GET get all accepted laundry requests
+2022-05-10 13:51:48:096 INFO  - GET get laundry prices
+2022-05-10 13:51:50:643 INFO  - PUT laundry request_id 52 completed
+2022-05-10 13:51:50:658 INFO  - GET email id of student_id 38 is mehtabhargavr@gmail.com
+2022-05-10 13:52:05:114 INFO  - POST email successfully sent to mehtabhargavr@gmail.com
+2022-05-10 13:52:05:401 INFO  - GET get all accepted laundry requests
+2022-05-10 13:52:05:402 INFO  - GET get laundry prices
+2022-05-10 13:52:09:263 INFO  - GET get all complted laundry requests
+2022-05-10 13:52:12:956 INFO  - PUT admin updated payment status of reqid 52
+2022-05-10 13:52:15:918 INFO  - GET get all complted laundry requests
+2022-05-10 13:54:47:618 INFO  - GET get qll equipments
+2022-05-10 13:55:03:994 INFO  - PUT update quantity of 1 to 15
+2022-05-10 13:55:13:803 INFO  - GET get qll equipments
+2022-05-10 13:55:46:792 INFO  - POST new equipment details 7 Foosball 2
+2022-05-10 13:56:13:516 INFO  - GET get qll equipments
+2022-05-10 13:57:02:538 INFO  - PUT update quantity of 1 to 1
+2022-05-10 13:58:52:329 INFO  - hostelfee 125000.0 messfee 50000.0
+2022-05-10 13:59:00:862 INFO  - GET count of rooms 6
+2022-05-10 13:59:03:459 INFO  - GET count of free rooms 4
+2022-05-10 13:59:31:396 INFO  - GET get user with username bhargav
+2022-05-10 13:59:35:754 INFO  - GET get all users
+2022-05-10 13:59:43:179 INFO  - GET Inside export to pdf
