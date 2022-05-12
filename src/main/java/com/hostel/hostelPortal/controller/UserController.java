@@ -1,27 +1,15 @@
 package com.hostel.hostelPortal.controller;
 
-import com.fasterxml.jackson.core.JsonToken;
 import com.hostel.hostelPortal.model.*;
 import com.hostel.hostelPortal.pdfgenerator;
 import com.hostel.hostelPortal.service.UserService;
-import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
-import com.lowagie.text.PageSize;
-import com.lowagie.text.Paragraph;
-import com.lowagie.text.pdf.PdfWriter;
-import lombok.Getter;
-import lombok.Setter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.PropertyEditorRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.DataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -57,50 +45,55 @@ public class UserController {
 
         Set<UserRole> roles = new HashSet<>();
         roles.add(userRole);
-
+        logger.info("POST create user " + user.getUserName());
         return this.userService.createUser(user, roles);
     }
 
     @GetMapping("/{username}")
     public User getUser(@PathVariable("username") String username) {
+        logger.info("GET get user with username " + username);
         return this.userService.getUser(username);
     }
 
     //delete the user by id
     @DeleteMapping("/{userId}")
     public void deleteUser(@PathVariable("userId") Long userId) {
+        logger.info("DELETE delete user with id " + userId);
         this.userService.deleteUser(userId);
     }
 
     //update user data
     @PutMapping("/update")
     public void updateUser(@RequestBody User user) {
+        logger.info("PUT update user with id " + user.getId());
         this.userService.updateUser(user);
     }
 
     @GetMapping("/getALL")
     public List<User> getall() {
+        logger.info("GET get all users");
         return this.userService.getalluser();
     }
 
     @GetMapping("/getroombyid/{userid}")
     public Long getRoombyid(@PathVariable("userid") Long userid) {
+        logger.info("GET get room number using student id " + userid);
         return this.userService.getroombyid(userid);
     }
 
     @PutMapping("/updateroom/{room}/{student}/{start}/{end}")
     public void updateroom(@PathVariable("room") long room,@PathVariable("student") long student,@PathVariable("start")  String start,@PathVariable("end")  String end)throws Exception
     {
-        System.out.println("hi");
         Date Start=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(start);
         Date End=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(end);
         this.userService.updateroom(room,student,Start,End);
+        logger.info("PUT updated room details room "+room+" student_id "+student+" start "+start+" end "+end);
     }
 
     @DeleteMapping("/vacateroom/{userId}")
     public void vacateroom(@PathVariable("userId") long userId)
     {
-        System.out.println("HI");
+        logger.info("DELETE vacate room with id "+userId);
         this.userService.vacateroom(userId);
     }
 
@@ -113,24 +106,30 @@ public class UserController {
     @GetMapping("isoccupied/{roomid}")
     public  boolean isoccupied(@PathVariable("roomid") Long roomid)
     {
+        logger.info("GET inside isoccupied room_id " + roomid);
         return this.userService.Isoccupied(roomid);
     }
 
     @PostMapping("/initialize_room/{roomid}")
     public void initializerooms(@PathVariable("roomid") Long room_id)
     {
+        logger.info("POST create room with id " + room_id);
         this.userService.initializeRoom(room_id);
     }
     @GetMapping("/countoffreerooms")
     public Long counoffreerooms()
     {
-        return  this.userService.countofFreerooms();
+        Long count=this.userService.countofFreerooms();
+        logger.info("GET count of free rooms "+count);
+        return  count;
     }
 
     @GetMapping("/countofrooms")
     public Long counofrooms()
     {
-        return  this.userService.countofrooms();
+        Long count=this.userService.countofrooms();
+        logger.info("GET count of rooms "+count);
+        return count;
     }
 
     @GetMapping("/export/pdf")
@@ -148,9 +147,8 @@ public class UserController {
 
         pdfgenerator exporter = new pdfgenerator(listUsers);
         exporter.export(response);
-
+        logger.info("GET Inside export to pdf");
     }
-
 
     public static float hostel_fees=1000;
     public static float mess_fees=2000;
@@ -164,7 +162,6 @@ public class UserController {
         logger.info("hostelfee " + hostelfee + " messfee " + messfee);
     }
 
-
     @GetMapping("/Export/{userid}/Pdf")
     public void exportPDF(@PathVariable("userid") long userid, HttpServletResponse response) throws DocumentException, IOException
     {
@@ -174,15 +171,11 @@ public class UserController {
 
         String headerKey = "Content-Disposition";
         String headerValue = "attachment; filename=users_" + currentDateTime + ".pdf";
+
         response.setHeader(headerKey, headerValue);
-
-
         pdfexporter exporter = new pdfexporter(userid,userService);
-
         exporter.export(response);
-
-
-
+        logger.info("GET inside export to pdf");
     }
 
     @PostMapping("/Assignroom/{room}/{student}/{start}/{end}")
@@ -191,8 +184,8 @@ public class UserController {
         Date Start=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(start);
         Date End=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(end);
         this.userService.create_room_stud(room,student,Start,End);
+        logger.info("Post Assign room "+room+" to student "+student+" start "+start+" end "+end);
     }
-
 
     @PutMapping("/updatefees/{hostelfee}/{messfee}")
     public void updatefees(@PathVariable("hostelfee") float hostelfee,@PathVariable("messfee") float messfee)
@@ -213,24 +206,21 @@ public class UserController {
     @GetMapping("/showfees/{id}")
     public  stud_fees showfees(@PathVariable Long id)
     {
+        logger.info("GET show fees of  student "+id);
         return   this.userService.showFees(id);
     }
-
-
 
     @GetMapping("/ROOMDETAILS/{stud_id}")
     public room_stud ROOMDETAILS(@PathVariable Long stud_id)
     {
+        logger.info("GET room details of student" + stud_id);
         return this.userService.ROOMDETAILS(stud_id);
     }
 
     @GetMapping("/get-email-address/{studId}")
     public String getEmailAddressById(@PathVariable("studId") Long studId) {
-        System.out.println("getEmailAddressById called");
         String str = this.userService.getEmailAddress(studId);
-        System.out.println(str);
+        logger.info("GET email id of student_id "+ studId+" is " +str);
         return str;
     }
-
-
 }
