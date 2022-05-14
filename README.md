@@ -20,7 +20,7 @@ The project is implemented using 3 layers:
 2. Database Layer 
 3. Back end 
 
-The Frontend is implemented using Angular, Bootstrap. 
+##The Frontend is implemented using Angular, Bootstrap.
 Spring Boot framework is used for the backend.
 The database layer is handled by MySQL database.
 The connection between backend and Database uses JPA persistence framework.
