@@ -20,13 +20,14 @@ The project is implemented using 3 layers:
 2. Database Layer 
 3. Back end 
 
-The Frontend is implemented using Angular, Bootstrap. Spring Boot framework is used 
-for the backend. The database layer is handled by MySQL database. The connection 
-between backend and Database uses JPA persistence framework. Authentication is 
-implemented using JWT.
+The Frontend is implemented using Angular, Bootstrap. 
+Spring Boot framework is used for the backend.
+The database layer is handled by MySQL database.
+The connection between backend and Database uses JPA persistence framework.
+Authentication is implemented using JWT.
 
 Github Repo for Frontend: 
-https://github.com/BRMehta/hostel-managementfrontend
+https://github.com/BRMehta/hostel-management-frontend
 
 Github Repo for Backend:
-https://github.com/BRMehta/-hostel-managementsyst
+https://github.com/BRMehta/-hostel-management-system
