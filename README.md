@@ -28,6 +28,3 @@ Authentication is implemented using JWT.
 
 Github Repo for Frontend: 
 https://github.com/BRMehta/hostel-management-frontend
-
-Github Repo for Backend:
-https://github.com/BRMehta/-hostel-management-system
